@@ -1,0 +1,985 @@
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 14; @symbol_importdef<0> = [Toybox,14,7,13]; @symbol_importdef<1> = [WatchUi,14,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 15; @symbol_importdef<0> = [Toybox,15,7,13]; @symbol_importdef<1> = [Activity,15,14,22]; ]
+import Toybox.Activity;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 16; @symbol_importdef<0> = [Toybox,16,7,13]; @symbol_importdef<1> = [ActivityRecording,16,14,31]; ]
+import Toybox.ActivityRecording;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 17; @symbol_importdef<0> = [Toybox,17,7,13]; @symbol_importdef<1> = [FitContributor,17,14,28]; ]
+import Toybox.FitContributor;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 18; @symbol_importdef<0> = [Toybox,18,7,13]; @symbol_importdef<1> = [Graphics,18,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 19; @symbol_importdef<0> = [Toybox,19,7,13]; @symbol_importdef<1> = [Lang,19,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 20; @symbol_importdef<0> = [Toybox,20,7,13]; @symbol_importdef<1> = [System,20,14,20]; ]
+import Toybox.System;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 23; @position = 6; @symbol_constdef = [FIT_MESG_RECORD,23,6,21]; ]
+const FIT_MESG_RECORD = 20;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 26; @position = 6; @symbol_constdef = [FIT_FIELD_CADENCE,26,6,23]; ]
+const FIT_FIELD_CADENCE = 4;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 27; @position = 6; @symbol_constdef = [FIT_FIELD_DISTANCE,27,6,24]; ]
+const FIT_FIELD_DISTANCE = 5;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 28; @position = 6; @symbol_constdef = [FIT_FIELD_SPEED,28,6,21]; ]
+const FIT_FIELD_SPEED = 6;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 29; @position = 6; @symbol_constdef = [FIT_FIELD_POWER,29,6,21]; ]
+const FIT_FIELD_POWER = 7;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 32; @position = 6; @symbol_constdef = [SCREEN_W,32,6,14]; ]
+const SCREEN_W = 260;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 33; @position = 6; @symbol_constdef = [SCREEN_H,33,6,14]; ]
+const SCREEN_H = 260;
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 35; @symbol_classdef = [FTMSDataField,35,6,19]; @symbol_extends<0> = [WatchUi,35,28,35]; @symbol_extends<1> = [DataField,35,36,45]; ]
+class FTMSDataField extends WatchUi.DataField {
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 35; ]
+    <init> {
+    }
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 35; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 40; @position = 8; @symbol_vardef = [_ble,40,8,12]; @symbol_type<0> = [FTMSBleDelegate,40,16,31]; ]
+    var _ble as FTMSBleDelegate;
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 45; @position = 8; @symbol_vardef = [_fitCadence,45,8,19]; @symbol_type<0> = [FitContributor,45,24,38]; @symbol_type<1> = [Field,45,39,44]; ]
+    var _fitCadence as FitContributor.Field;
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 46; @position = 8; @symbol_vardef = [_fitDistance,46,8,20]; @symbol_type<0> = [FitContributor,46,24,38]; @symbol_type<1> = [Field,46,39,44]; ]
+    var _fitDistance as FitContributor.Field;
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 47; @position = 8; @symbol_vardef = [_fitSpeed,47,8,17]; @symbol_type<0> = [FitContributor,47,24,38]; @symbol_type<1> = [Field,47,39,44]; ]
+    var _fitSpeed as FitContributor.Field;
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 48; @position = 8; @symbol_vardef = [_fitPower,48,8,17]; @symbol_type<0> = [FitContributor,48,24,38]; @symbol_type<1> = [Field,48,39,44]; ]
+    var _fitPower as FitContributor.Field;
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 53; @symbol_functiondef = [initialize,53,13,23]; ]
+    function initialize() as Void {
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_53_26_103_4_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 54 8 ]
+        symbol [ DataField %tmp.2 54 8 17 ];
+        %tmp.2 = getv ? :DataField;
+        symbol [ initialize %tmp.3 54 18 28 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 57 8 ]
+        symbol [ FTMSBleDelegate %tmp.7 57 19 34 ];
+        %tmp.7 = getv ? :FTMSBleDelegate;
+        %tmp.4 = newc %tmp.7 ();
+        symbol [ _ble ? 57 8 12 ];
+        putv self :_ble %tmp.4;
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 76 8 ]
+        %tmp.8 = self;
+        symbol [ createField %tmp.9 76 22 33 ];
+        %tmp.9 = getv function %tmp.8 :createField;
+        %tmp.10 = "cadence";
+        %tmp.11 = 0;
+        symbol [ FitContributor %tmp.12 79 12 26 ];
+        %tmp.12 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.13 79 27 42 ];
+        %tmp.13 = getv %tmp.12 :DATA_TYPE_UINT8;
+        %tmp.14 = newd 3;
+        %tmp.16 = const :nativeNum;
+        symbol [ nativeNum %tmp.16 80 15 24 const ];
+        symbol [ FIT_FIELD_CADENCE %tmp.18 80 28 45 ];
+        %tmp.18 = getv ? :FIT_FIELD_CADENCE;
+        %tmp.19 = dup %tmp.14;
+        %tmp.20 = aputv %tmp.19 %tmp.16 %tmp.18;
+        %tmp.22 = const :mesgType;
+        symbol [ mesgType %tmp.22 80 48 56 const ];
+        symbol [ FitContributor %tmp.23 80 60 74 ];
+        %tmp.23 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_RECORD %tmp.24 80 75 91 ];
+        %tmp.24 = getv %tmp.23 :MESG_TYPE_RECORD;
+        %tmp.25 = dup %tmp.20;
+        %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
+        %tmp.28 = const :units;
+        symbol [ units %tmp.28 80 94 99 const ];
+        %tmp.29 = "rpm";
+        %tmp.30 = dup %tmp.26;
+        %tmp.31 = aputv %tmp.30 %tmp.28 %tmp.29;
+        %tmp.32 = invoke %tmp.8 %tmp.9(%tmp.10, %tmp.11, %tmp.13, %tmp.31);
+        symbol [ _fitCadence ? 76 8 19 ];
+        putv self :_fitCadence %tmp.32;
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 83 8 ]
+        %tmp.33 = self;
+        symbol [ createField %tmp.34 83 23 34 ];
+        %tmp.34 = getv function %tmp.33 :createField;
+        %tmp.35 = "distance";
+        %tmp.36 = 1;
+        symbol [ FitContributor %tmp.37 86 12 26 ];
+        %tmp.37 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT32 %tmp.38 86 27 43 ];
+        %tmp.38 = getv %tmp.37 :DATA_TYPE_UINT32;
+        %tmp.39 = newd 3;
+        %tmp.41 = const :nativeNum;
+        symbol [ nativeNum %tmp.41 87 15 24 const ];
+        symbol [ FIT_FIELD_DISTANCE %tmp.43 87 28 46 ];
+        %tmp.43 = getv ? :FIT_FIELD_DISTANCE;
+        %tmp.44 = dup %tmp.39;
+        %tmp.45 = aputv %tmp.44 %tmp.41 %tmp.43;
+        %tmp.47 = const :mesgType;
+        symbol [ mesgType %tmp.47 87 49 57 const ];
+        symbol [ FitContributor %tmp.48 87 61 75 ];
+        %tmp.48 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_RECORD %tmp.49 87 76 92 ];
+        %tmp.49 = getv %tmp.48 :MESG_TYPE_RECORD;
+        %tmp.50 = dup %tmp.45;
+        %tmp.51 = aputv %tmp.50 %tmp.47 %tmp.49;
+        %tmp.53 = const :units;
+        symbol [ units %tmp.53 87 95 100 const ];
+        %tmp.54 = "m";
+        %tmp.55 = dup %tmp.51;
+        %tmp.56 = aputv %tmp.55 %tmp.53 %tmp.54;
+        %tmp.57 = invoke %tmp.33 %tmp.34(%tmp.35, %tmp.36, %tmp.38, %tmp.56);
+        symbol [ _fitDistance ? 83 8 20 ];
+        putv self :_fitDistance %tmp.57;
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 90 8 ]
+        %tmp.58 = self;
+        symbol [ createField %tmp.59 90 20 31 ];
+        %tmp.59 = getv function %tmp.58 :createField;
+        %tmp.60 = "speed";
+        %tmp.61 = 2;
+        symbol [ FitContributor %tmp.62 93 12 26 ];
+        %tmp.62 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT16 %tmp.63 93 27 43 ];
+        %tmp.63 = getv %tmp.62 :DATA_TYPE_UINT16;
+        %tmp.64 = newd 3;
+        %tmp.66 = const :nativeNum;
+        symbol [ nativeNum %tmp.66 94 15 24 const ];
+        symbol [ FIT_FIELD_SPEED %tmp.68 94 28 43 ];
+        %tmp.68 = getv ? :FIT_FIELD_SPEED;
+        %tmp.69 = dup %tmp.64;
+        %tmp.70 = aputv %tmp.69 %tmp.66 %tmp.68;
+        %tmp.72 = const :mesgType;
+        symbol [ mesgType %tmp.72 94 46 54 const ];
+        symbol [ FitContributor %tmp.73 94 58 72 ];
+        %tmp.73 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_RECORD %tmp.74 94 73 89 ];
+        %tmp.74 = getv %tmp.73 :MESG_TYPE_RECORD;
+        %tmp.75 = dup %tmp.70;
+        %tmp.76 = aputv %tmp.75 %tmp.72 %tmp.74;
+        %tmp.78 = const :units;
+        symbol [ units %tmp.78 94 92 97 const ];
+        %tmp.79 = "m/s";
+        %tmp.80 = dup %tmp.76;
+        %tmp.81 = aputv %tmp.80 %tmp.78 %tmp.79;
+        %tmp.82 = invoke %tmp.58 %tmp.59(%tmp.60, %tmp.61, %tmp.63, %tmp.81);
+        symbol [ _fitSpeed ? 90 8 17 ];
+        putv self :_fitSpeed %tmp.82;
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 97 8 ]
+        %tmp.83 = self;
+        symbol [ createField %tmp.84 97 20 31 ];
+        %tmp.84 = getv function %tmp.83 :createField;
+        %tmp.85 = "power";
+        %tmp.86 = 3;
+        symbol [ FitContributor %tmp.87 100 12 26 ];
+        %tmp.87 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT16 %tmp.88 100 27 43 ];
+        %tmp.88 = getv %tmp.87 :DATA_TYPE_UINT16;
+        %tmp.89 = newd 3;
+        %tmp.91 = const :nativeNum;
+        symbol [ nativeNum %tmp.91 101 15 24 const ];
+        symbol [ FIT_FIELD_POWER %tmp.93 101 28 43 ];
+        %tmp.93 = getv ? :FIT_FIELD_POWER;
+        %tmp.94 = dup %tmp.89;
+        %tmp.95 = aputv %tmp.94 %tmp.91 %tmp.93;
+        %tmp.97 = const :mesgType;
+        symbol [ mesgType %tmp.97 101 46 54 const ];
+        symbol [ FitContributor %tmp.98 101 58 72 ];
+        %tmp.98 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_RECORD %tmp.99 101 73 89 ];
+        %tmp.99 = getv %tmp.98 :MESG_TYPE_RECORD;
+        %tmp.100 = dup %tmp.95;
+        %tmp.101 = aputv %tmp.100 %tmp.97 %tmp.99;
+        %tmp.103 = const :units;
+        symbol [ units %tmp.103 101 92 97 const ];
+        %tmp.104 = "W";
+        %tmp.105 = dup %tmp.101;
+        %tmp.106 = aputv %tmp.105 %tmp.103 %tmp.104;
+        %tmp.107 = invoke %tmp.83 %tmp.84(%tmp.85, %tmp.86, %tmp.88, %tmp.106);
+        symbol [ _fitPower ? 97 8 17 ];
+        putv self :_fitPower %tmp.107;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_53_26_103_4_stop:
+    }
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 108; @symbol_functiondef = [compute,108,13,20]; @symbol_param<0> = [info,108,21,25]; @symbol_param<0>_type<0> = [Activity,108,29,37]; @symbol_param<0>_type<1> = [Info,108,38,42]; @symbol_return<0> = [Object,108,47,53]; ]
+    function compute(info as Activity.Info) as Object or Null {
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 109 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %speedKph.1 = local;
+        symbol [ speedKph %speedKph.1 109 12 20 ];
+        symbol [ _ble %tmp.2 109 25 29 ];
+        %tmp.2 = getv ? :_ble;
+        symbol [ speedKph %tmp.3 109 30 38 ];
+        %tmp.3 = getv %tmp.2 :speedKph;
+        lputv %speedKph.1 %tmp.3;
+        symbol [ speedKph %speedKph.1 109 12 20 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 110 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %cadenceRpm.2 = local;
+        symbol [ cadenceRpm %cadenceRpm.2 110 12 22 ];
+        symbol [ _ble %tmp.5 110 25 29 ];
+        %tmp.5 = getv ? :_ble;
+        symbol [ cadenceRpm %tmp.6 110 30 40 ];
+        %tmp.6 = getv %tmp.5 :cadenceRpm;
+        lputv %cadenceRpm.2 %tmp.6;
+        symbol [ cadenceRpm %cadenceRpm.2 110 12 22 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 111 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %distanceM.3 = local;
+        symbol [ distanceM %distanceM.3 111 12 21 ];
+        symbol [ _ble %tmp.8 111 25 29 ];
+        %tmp.8 = getv ? :_ble;
+        symbol [ distanceM %tmp.9 111 30 39 ];
+        %tmp.9 = getv %tmp.8 :distanceM;
+        lputv %distanceM.3 %tmp.9;
+        symbol [ distanceM %distanceM.3 111 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 112 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %powerW.4 = local;
+        symbol [ powerW %powerW.4 112 12 18 ];
+        symbol [ _ble %tmp.11 112 25 29 ];
+        %tmp.11 = getv ? :_ble;
+        symbol [ powerW %tmp.12 112 30 36 ];
+        %tmp.12 = getv %tmp.11 :powerW;
+        lputv %powerW.4 %tmp.12;
+        symbol [ powerW %powerW.4 112 12 18 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 115 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %speedMs.5 = local;
+        symbol [ speedMs %speedMs.5 115 12 19 ];
+        %tmp.13 = lgetv %speedKph.1;
+        symbol [ speedKph %tmp.13 115 22 30 ];
+        %tmp.14 = 3.6f;
+        %tmp.15 = div %tmp.13 %tmp.14;
+        lputv %speedMs.5 %tmp.15;
+        symbol [ speedMs %speedMs.5 115 12 19 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 116 8 ]
+        symbol [ _fitSpeed %tmp.17 116 8 17 ];
+        %tmp.17 = getv ? :_fitSpeed;
+        symbol [ setData %tmp.18 116 18 25 ];
+        %tmp.18 = getv function %tmp.17 :setData;
+        %tmp.19 = lgetv %speedMs.5;
+        symbol [ speedMs %tmp.19 116 27 34 ];
+        %tmp.20 = 1000.0f;
+        %tmp.21 = mul %tmp.19 %tmp.20;
+        symbol [ toNumber %tmp.22 116 46 54 ];
+        %tmp.22 = getv function %tmp.21 :toNumber;
+        %tmp.23 = invoke %tmp.21 %tmp.22();
+        invoke %tmp.17 %tmp.18(%tmp.23);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 119 8 ]
+        symbol [ _fitDistance %tmp.25 119 8 20 ];
+        %tmp.25 = getv ? :_fitDistance;
+        symbol [ setData %tmp.26 119 21 28 ];
+        %tmp.26 = getv function %tmp.25 :setData;
+        %tmp.27 = lgetv %distanceM.3;
+        symbol [ distanceM %tmp.27 119 29 38 ];
+        %tmp.28 = 100;
+        %tmp.29 = mul %tmp.27 %tmp.28;
+        invoke %tmp.25 %tmp.26(%tmp.29);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 122 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %cadenceInt.6 = local;
+        symbol [ cadenceInt %cadenceInt.6 122 12 22 ];
+        symbol [ Math %tmp.31 122 25 29 ];
+        %tmp.31 = getv ? :Math;
+        symbol [ round %tmp.32 122 30 35 ];
+        %tmp.32 = getv function %tmp.31 :round;
+        %tmp.33 = lgetv %cadenceRpm.2;
+        symbol [ cadenceRpm %tmp.33 122 36 46 ];
+        %tmp.34 = invoke %tmp.31 %tmp.32(%tmp.33);
+        symbol [ toNumber %tmp.35 122 48 56 ];
+        %tmp.35 = getv function %tmp.34 :toNumber;
+        %tmp.36 = invoke %tmp.34 %tmp.35();
+        lputv %cadenceInt.6 %tmp.36;
+        symbol [ cadenceInt %cadenceInt.6 122 12 22 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 123 8 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_8_123_48_if_stmt:
+        %tmp.37 = lgetv %cadenceInt.6;
+        symbol [ cadenceInt %tmp.37 123 12 22 ];
+        %tmp.38 = 0;
+        %tmp.39 = lt %tmp.37 %tmp.38;
+        bf %tmp.39 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_8_123_48_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_8_123_48_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_30_123_48_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 123 32 ]
+        %tmp.40 = 0;
+        lputv %cadenceInt.6 %tmp.40;
+        symbol [ cadenceInt %cadenceInt.6 123 32 42 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_30_123_48_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_8_123_48_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_123_8_123_48_if_end:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 124 8 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_8_124_50_if_stmt:
+        %tmp.41 = lgetv %cadenceInt.6;
+        symbol [ cadenceInt %tmp.41 124 12 22 ];
+        %tmp.42 = 255;
+        %tmp.43 = gt %tmp.41 %tmp.42;
+        bf %tmp.43 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_8_124_50_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_8_124_50_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_30_124_50_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 124 32 ]
+        %tmp.44 = 255;
+        lputv %cadenceInt.6 %tmp.44;
+        symbol [ cadenceInt %cadenceInt.6 124 32 42 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_30_124_50_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_8_124_50_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_124_8_124_50_if_end:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 125 8 ]
+        symbol [ _fitCadence %tmp.46 125 8 19 ];
+        %tmp.46 = getv ? :_fitCadence;
+        symbol [ setData %tmp.47 125 20 27 ];
+        %tmp.47 = getv function %tmp.46 :setData;
+        %tmp.48 = lgetv %cadenceInt.6;
+        symbol [ cadenceInt %tmp.48 125 28 38 ];
+        invoke %tmp.46 %tmp.47(%tmp.48);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 128 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop" ]
+        %powerInt.7 = local;
+        symbol [ powerInt %powerInt.7 128 12 20 ];
+        %tmp.49 = lgetv %powerW.4;
+        symbol [ powerW %tmp.49 128 23 29 ];
+        lputv %powerInt.7 %tmp.49;
+        symbol [ powerInt %powerInt.7 128 12 20 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 129 8 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_8_129_46_if_stmt:
+        %tmp.50 = lgetv %powerInt.7;
+        symbol [ powerInt %tmp.50 129 12 20 ];
+        %tmp.51 = 0;
+        %tmp.52 = lt %tmp.50 %tmp.51;
+        bf %tmp.52 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_8_129_46_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_8_129_46_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_30_129_46_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 129 32 ]
+        %tmp.53 = 0;
+        lputv %powerInt.7 %tmp.53;
+        symbol [ powerInt %powerInt.7 129 32 40 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_30_129_46_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_8_129_46_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_129_8_129_46_if_end:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 130 8 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_8_130_50_if_stmt:
+        %tmp.54 = lgetv %powerInt.7;
+        symbol [ powerInt %tmp.54 130 12 20 ];
+        %tmp.55 = 65535;
+        %tmp.56 = gt %tmp.54 %tmp.55;
+        bf %tmp.56 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_8_130_50_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_8_130_50_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_30_130_50_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 130 32 ]
+        %tmp.57 = 65535;
+        lputv %powerInt.7 %tmp.57;
+        symbol [ powerInt %powerInt.7 130 32 40 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_30_130_50_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_8_130_50_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_130_8_130_50_if_end:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 131 8 ]
+        symbol [ _fitPower %tmp.59 131 8 17 ];
+        %tmp.59 = getv ? :_fitPower;
+        symbol [ setData %tmp.60 131 18 25 ];
+        %tmp.60 = getv function %tmp.59 :setData;
+        %tmp.61 = lgetv %powerInt.7;
+        symbol [ powerInt %tmp.61 131 26 34 ];
+        invoke %tmp.59 %tmp.60(%tmp.61);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 134 8 ]
+        %tmp.62 = null;
+        ret %tmp.62;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_108_62_135_4_stop:
+    }
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 140; @symbol_functiondef = [onUpdate,140,13,21]; @symbol_param<0> = [dc,140,22,24]; @symbol_param<0>_type<0> = [Graphics,140,28,36]; @symbol_param<0>_type<1> = [Dc,140,37,39]; ]
+    function onUpdate(dc as Graphics.Dc) as Void {
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 142 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 142 8 10 ];
+        symbol [ setColor %tmp.2 142 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 142 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.4 142 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_BLACK;
+        symbol [ Graphics %tmp.5 142 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 142 51 62 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 143 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 143 8 10 ];
+        symbol [ clear %tmp.8 143 11 16 ];
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 145 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %w.1 = local;
+        symbol [ w %w.1 145 12 13 ];
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 145 16 18 ];
+        symbol [ getWidth %tmp.10 145 19 27 ];
+        %tmp.10 = getv function %tmp.9 :getWidth;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %w.1 %tmp.11;
+        symbol [ w %w.1 145 12 13 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 146 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %h.2 = local;
+        symbol [ h %h.2 146 12 13 ];
+        %tmp.12 = lgetv %dc;
+        symbol [ dc %tmp.12 146 16 18 ];
+        symbol [ getHeight %tmp.13 146 19 28 ];
+        %tmp.13 = getv function %tmp.12 :getHeight;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        lputv %h.2 %tmp.14;
+        symbol [ h %h.2 146 12 13 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 149 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %speedKph.3 = local;
+        symbol [ speedKph %speedKph.3 149 12 20 ];
+        symbol [ _ble %tmp.16 149 25 29 ];
+        %tmp.16 = getv ? :_ble;
+        symbol [ speedKph %tmp.17 149 30 38 ];
+        %tmp.17 = getv %tmp.16 :speedKph;
+        lputv %speedKph.3 %tmp.17;
+        symbol [ speedKph %speedKph.3 149 12 20 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 150 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %cadenceRpm.4 = local;
+        symbol [ cadenceRpm %cadenceRpm.4 150 12 22 ];
+        symbol [ _ble %tmp.19 150 25 29 ];
+        %tmp.19 = getv ? :_ble;
+        symbol [ cadenceRpm %tmp.20 150 30 40 ];
+        %tmp.20 = getv %tmp.19 :cadenceRpm;
+        lputv %cadenceRpm.4 %tmp.20;
+        symbol [ cadenceRpm %cadenceRpm.4 150 12 22 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 151 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %distanceM.5 = local;
+        symbol [ distanceM %distanceM.5 151 12 21 ];
+        symbol [ _ble %tmp.22 151 25 29 ];
+        %tmp.22 = getv ? :_ble;
+        symbol [ distanceM %tmp.23 151 30 39 ];
+        %tmp.23 = getv %tmp.22 :distanceM;
+        lputv %distanceM.5 %tmp.23;
+        symbol [ distanceM %distanceM.5 151 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 152 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %powerW.6 = local;
+        symbol [ powerW %powerW.6 152 12 18 ];
+        symbol [ _ble %tmp.25 152 25 29 ];
+        %tmp.25 = getv ? :_ble;
+        symbol [ powerW %tmp.26 152 30 36 ];
+        %tmp.26 = getv %tmp.25 :powerW;
+        lputv %powerW.6 %tmp.26;
+        symbol [ powerW %powerW.6 152 12 18 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 153 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %state.7 = local;
+        symbol [ state %state.7 153 12 17 ];
+        symbol [ _ble %tmp.28 153 25 29 ];
+        %tmp.28 = getv ? :_ble;
+        symbol [ getState %tmp.29 153 30 38 ];
+        %tmp.29 = getv function %tmp.28 :getState;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        lputv %state.7 %tmp.30;
+        symbol [ state %state.7 153 12 17 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 156 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %colLeft.8 = local;
+        symbol [ colLeft %colLeft.8 156 12 19 ];
+        %tmp.31 = lgetv %w.1;
+        symbol [ w %tmp.31 156 23 24 ];
+        %tmp.32 = 4;
+        %tmp.33 = div %tmp.31 %tmp.32;
+        lputv %colLeft.8 %tmp.33;
+        symbol [ colLeft %colLeft.8 156 12 19 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 157 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %colRight.9 = local;
+        symbol [ colRight %colRight.9 157 12 20 ];
+        %tmp.34 = lgetv %w.1;
+        symbol [ w %tmp.34 157 24 25 ];
+        %tmp.35 = 3;
+        %tmp.36 = mul %tmp.34 %tmp.35;
+        %tmp.37 = 4;
+        %tmp.38 = div %tmp.36 %tmp.37;
+        lputv %colRight.9 %tmp.38;
+        symbol [ colRight %colRight.9 157 12 20 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 161 8 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 161 8 10 ];
+        symbol [ setColor %tmp.40 161 11 19 ];
+        %tmp.40 = getv function %tmp.39 :setColor;
+        symbol [ Graphics %tmp.41 161 20 28 ];
+        %tmp.41 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.42 161 29 42 ];
+        %tmp.42 = getv %tmp.41 :COLOR_LT_GRAY;
+        symbol [ Graphics %tmp.43 161 44 52 ];
+        %tmp.43 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.44 161 53 70 ];
+        %tmp.44 = getv %tmp.43 :COLOR_TRANSPARENT;
+        invoke %tmp.39 %tmp.40(%tmp.42, %tmp.44);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 162 8 ]
+        %tmp.45 = lgetv %dc;
+        symbol [ dc %tmp.45 162 8 10 ];
+        symbol [ drawText %tmp.46 162 11 19 ];
+        %tmp.46 = getv function %tmp.45 :drawText;
+        %tmp.47 = lgetv %colLeft.8;
+        symbol [ colLeft %tmp.47 162 20 27 ];
+        %tmp.48 = 30;
+        symbol [ Graphics %tmp.49 162 34 42 ];
+        %tmp.49 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.50 162 43 53 ];
+        %tmp.50 = getv %tmp.49 :FONT_XTINY;
+        %tmp.51 = "POWER";
+        symbol [ Graphics %tmp.52 162 66 74 ];
+        %tmp.52 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.53 162 75 94 ];
+        %tmp.53 = getv %tmp.52 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.45 %tmp.46(%tmp.47, %tmp.48, %tmp.50, %tmp.51, %tmp.53);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 163 8 ]
+        %tmp.54 = lgetv %dc;
+        symbol [ dc %tmp.54 163 8 10 ];
+        symbol [ drawText %tmp.55 163 11 19 ];
+        %tmp.55 = getv function %tmp.54 :drawText;
+        %tmp.56 = lgetv %colRight.9;
+        symbol [ colRight %tmp.56 163 20 28 ];
+        %tmp.57 = 30;
+        symbol [ Graphics %tmp.58 163 34 42 ];
+        %tmp.58 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.59 163 43 53 ];
+        %tmp.59 = getv %tmp.58 :FONT_XTINY;
+        %tmp.60 = "CADENCE";
+        symbol [ Graphics %tmp.61 163 66 74 ];
+        %tmp.61 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.62 163 75 94 ];
+        %tmp.62 = getv %tmp.61 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.54 %tmp.55(%tmp.56, %tmp.57, %tmp.59, %tmp.60, %tmp.62);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 166 8 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 166 8 10 ];
+        symbol [ setColor %tmp.64 166 11 19 ];
+        %tmp.64 = getv function %tmp.63 :setColor;
+        symbol [ Graphics %tmp.65 166 20 28 ];
+        %tmp.65 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.66 166 29 40 ];
+        %tmp.66 = getv %tmp.65 :COLOR_WHITE;
+        symbol [ Graphics %tmp.67 166 42 50 ];
+        %tmp.67 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.68 166 51 68 ];
+        %tmp.68 = getv %tmp.67 :COLOR_TRANSPARENT;
+        invoke %tmp.63 %tmp.64(%tmp.66, %tmp.68);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 167 8 ]
+        %tmp.69 = lgetv %dc;
+        symbol [ dc %tmp.69 167 8 10 ];
+        symbol [ drawText %tmp.70 167 11 19 ];
+        %tmp.70 = getv function %tmp.69 :drawText;
+        %tmp.71 = lgetv %colLeft.8;
+        symbol [ colLeft %tmp.71 167 20 27 ];
+        %tmp.72 = 55;
+        symbol [ Graphics %tmp.73 167 34 42 ];
+        %tmp.73 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_MEDIUM %tmp.74 167 43 61 ];
+        %tmp.74 = getv %tmp.73 :FONT_NUMBER_MEDIUM;
+        %tmp.75 = lgetv %powerW.6;
+        symbol [ powerW %tmp.75 168 12 18 ];
+        symbol [ toString %tmp.76 168 19 27 ];
+        %tmp.76 = getv function %tmp.75 :toString;
+        %tmp.77 = invoke %tmp.75 %tmp.76();
+        %tmp.78 = " W";
+        %tmp.79 = add %tmp.77 %tmp.78;
+        symbol [ Graphics %tmp.80 168 41 49 ];
+        %tmp.80 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.81 168 50 69 ];
+        %tmp.81 = getv %tmp.80 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.69 %tmp.70(%tmp.71, %tmp.72, %tmp.74, %tmp.79, %tmp.81);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 169 8 ]
+        %tmp.82 = lgetv %dc;
+        symbol [ dc %tmp.82 169 8 10 ];
+        symbol [ drawText %tmp.83 169 11 19 ];
+        %tmp.83 = getv function %tmp.82 :drawText;
+        %tmp.84 = lgetv %colRight.9;
+        symbol [ colRight %tmp.84 169 20 28 ];
+        %tmp.85 = 55;
+        symbol [ Graphics %tmp.86 169 34 42 ];
+        %tmp.86 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_MEDIUM %tmp.87 169 43 61 ];
+        %tmp.87 = getv %tmp.86 :FONT_NUMBER_MEDIUM;
+        symbol [ Math %tmp.89 170 12 16 ];
+        %tmp.89 = getv ? :Math;
+        symbol [ round %tmp.90 170 17 22 ];
+        %tmp.90 = getv function %tmp.89 :round;
+        %tmp.91 = lgetv %cadenceRpm.4;
+        symbol [ cadenceRpm %tmp.91 170 23 33 ];
+        %tmp.92 = invoke %tmp.89 %tmp.90(%tmp.91);
+        symbol [ toNumber %tmp.93 170 35 43 ];
+        %tmp.93 = getv function %tmp.92 :toNumber;
+        %tmp.94 = invoke %tmp.92 %tmp.93();
+        symbol [ toString %tmp.95 170 46 54 ];
+        %tmp.95 = getv function %tmp.94 :toString;
+        %tmp.96 = invoke %tmp.94 %tmp.95();
+        %tmp.97 = " rpm";
+        %tmp.98 = add %tmp.96 %tmp.97;
+        symbol [ Graphics %tmp.99 170 67 75 ];
+        %tmp.99 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.100 170 76 95 ];
+        %tmp.100 = getv %tmp.99 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.82 %tmp.83(%tmp.84, %tmp.85, %tmp.87, %tmp.98, %tmp.100);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 173 8 ]
+        %tmp.101 = lgetv %dc;
+        symbol [ dc %tmp.101 173 8 10 ];
+        symbol [ setColor %tmp.102 173 11 19 ];
+        %tmp.102 = getv function %tmp.101 :setColor;
+        symbol [ Graphics %tmp.103 173 20 28 ];
+        %tmp.103 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.104 173 29 42 ];
+        %tmp.104 = getv %tmp.103 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.105 173 44 52 ];
+        %tmp.105 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.106 173 53 70 ];
+        %tmp.106 = getv %tmp.105 :COLOR_TRANSPARENT;
+        invoke %tmp.101 %tmp.102(%tmp.104, %tmp.106);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 174 8 ]
+        %tmp.107 = lgetv %dc;
+        symbol [ dc %tmp.107 174 8 10 ];
+        symbol [ drawLine %tmp.108 174 11 19 ];
+        %tmp.108 = getv function %tmp.107 :drawLine;
+        %tmp.109 = 20;
+        %tmp.110 = 118;
+        %tmp.111 = lgetv %w.1;
+        symbol [ w %tmp.111 174 29 30 ];
+        %tmp.112 = 20;
+        %tmp.113 = sub %tmp.111 %tmp.112;
+        %tmp.114 = 118;
+        invoke %tmp.107 %tmp.108(%tmp.109, %tmp.110, %tmp.113, %tmp.114);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 178 8 ]
+        %tmp.115 = lgetv %dc;
+        symbol [ dc %tmp.115 178 8 10 ];
+        symbol [ setColor %tmp.116 178 11 19 ];
+        %tmp.116 = getv function %tmp.115 :setColor;
+        symbol [ Graphics %tmp.117 178 20 28 ];
+        %tmp.117 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.118 178 29 42 ];
+        %tmp.118 = getv %tmp.117 :COLOR_LT_GRAY;
+        symbol [ Graphics %tmp.119 178 44 52 ];
+        %tmp.119 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.120 178 53 70 ];
+        %tmp.120 = getv %tmp.119 :COLOR_TRANSPARENT;
+        invoke %tmp.115 %tmp.116(%tmp.118, %tmp.120);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 179 8 ]
+        %tmp.121 = lgetv %dc;
+        symbol [ dc %tmp.121 179 8 10 ];
+        symbol [ drawText %tmp.122 179 11 19 ];
+        %tmp.122 = getv function %tmp.121 :drawText;
+        %tmp.123 = lgetv %colLeft.8;
+        symbol [ colLeft %tmp.123 179 20 27 ];
+        %tmp.124 = 128;
+        symbol [ Graphics %tmp.125 179 35 43 ];
+        %tmp.125 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.126 179 44 54 ];
+        %tmp.126 = getv %tmp.125 :FONT_XTINY;
+        %tmp.127 = "SPEED";
+        symbol [ Graphics %tmp.128 179 68 76 ];
+        %tmp.128 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.129 179 77 96 ];
+        %tmp.129 = getv %tmp.128 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.121 %tmp.122(%tmp.123, %tmp.124, %tmp.126, %tmp.127, %tmp.129);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 180 8 ]
+        %tmp.130 = lgetv %dc;
+        symbol [ dc %tmp.130 180 8 10 ];
+        symbol [ drawText %tmp.131 180 11 19 ];
+        %tmp.131 = getv function %tmp.130 :drawText;
+        %tmp.132 = lgetv %colRight.9;
+        symbol [ colRight %tmp.132 180 20 28 ];
+        %tmp.133 = 128;
+        symbol [ Graphics %tmp.134 180 35 43 ];
+        %tmp.134 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.135 180 44 54 ];
+        %tmp.135 = getv %tmp.134 :FONT_XTINY;
+        %tmp.136 = "DISTANCE";
+        symbol [ Graphics %tmp.137 180 68 76 ];
+        %tmp.137 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.138 180 77 96 ];
+        %tmp.138 = getv %tmp.137 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.130 %tmp.131(%tmp.132, %tmp.133, %tmp.135, %tmp.136, %tmp.138);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 183 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %speedStr.10 = local;
+        symbol [ speedStr %speedStr.10 183 12 20 ];
+        %tmp.139 = lgetv %speedKph.3;
+        symbol [ speedKph %tmp.139 183 26 34 ];
+        symbol [ format %tmp.140 183 35 41 ];
+        %tmp.140 = getv function %tmp.139 :format;
+        %tmp.141 = "%.1f";
+        %tmp.142 = invoke %tmp.139 %tmp.140(%tmp.141);
+        %tmp.143 = " km/h";
+        %tmp.144 = add %tmp.142 %tmp.143;
+        lputv %speedStr.10 %tmp.144;
+        symbol [ speedStr %speedStr.10 183 12 20 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 184 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %distanceKm.11 = local;
+        symbol [ distanceKm %distanceKm.11 184 12 22 ];
+        %tmp.145 = lgetv %distanceM.5;
+        symbol [ distanceM %tmp.145 184 26 35 ];
+        %tmp.146 = 1000.0f;
+        %tmp.147 = div %tmp.145 %tmp.146;
+        lputv %distanceKm.11 %tmp.147;
+        symbol [ distanceKm %distanceKm.11 184 12 22 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 185 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop" ]
+        %distanceStr.12 = local;
+        symbol [ distanceStr %distanceStr.12 185 12 23 ];
+        %tmp.148 = lgetv %distanceKm.11;
+        symbol [ distanceKm %tmp.148 185 26 36 ];
+        symbol [ format %tmp.149 185 37 43 ];
+        %tmp.149 = getv function %tmp.148 :format;
+        %tmp.150 = "%.2f";
+        %tmp.151 = invoke %tmp.148 %tmp.149(%tmp.150);
+        %tmp.152 = " km";
+        %tmp.153 = add %tmp.151 %tmp.152;
+        lputv %distanceStr.12 %tmp.153;
+        symbol [ distanceStr %distanceStr.12 185 12 23 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 187 8 ]
+        %tmp.154 = lgetv %dc;
+        symbol [ dc %tmp.154 187 8 10 ];
+        symbol [ setColor %tmp.155 187 11 19 ];
+        %tmp.155 = getv function %tmp.154 :setColor;
+        symbol [ Graphics %tmp.156 187 20 28 ];
+        %tmp.156 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.157 187 29 40 ];
+        %tmp.157 = getv %tmp.156 :COLOR_WHITE;
+        symbol [ Graphics %tmp.158 187 42 50 ];
+        %tmp.158 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.159 187 51 68 ];
+        %tmp.159 = getv %tmp.158 :COLOR_TRANSPARENT;
+        invoke %tmp.154 %tmp.155(%tmp.157, %tmp.159);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 188 8 ]
+        %tmp.160 = lgetv %dc;
+        symbol [ dc %tmp.160 188 8 10 ];
+        symbol [ drawText %tmp.161 188 11 19 ];
+        %tmp.161 = getv function %tmp.160 :drawText;
+        %tmp.162 = lgetv %colLeft.8;
+        symbol [ colLeft %tmp.162 188 20 27 ];
+        %tmp.163 = 153;
+        symbol [ Graphics %tmp.164 188 35 43 ];
+        %tmp.164 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_MEDIUM %tmp.165 188 44 62 ];
+        %tmp.165 = getv %tmp.164 :FONT_NUMBER_MEDIUM;
+        %tmp.166 = lgetv %speedStr.10;
+        symbol [ speedStr %tmp.166 188 64 72 ];
+        symbol [ Graphics %tmp.167 188 77 85 ];
+        %tmp.167 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.168 188 86 105 ];
+        %tmp.168 = getv %tmp.167 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.160 %tmp.161(%tmp.162, %tmp.163, %tmp.165, %tmp.166, %tmp.168);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 189 8 ]
+        %tmp.169 = lgetv %dc;
+        symbol [ dc %tmp.169 189 8 10 ];
+        symbol [ drawText %tmp.170 189 11 19 ];
+        %tmp.170 = getv function %tmp.169 :drawText;
+        %tmp.171 = lgetv %colRight.9;
+        symbol [ colRight %tmp.171 189 20 28 ];
+        %tmp.172 = 153;
+        symbol [ Graphics %tmp.173 189 35 43 ];
+        %tmp.173 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_MEDIUM %tmp.174 189 44 62 ];
+        %tmp.174 = getv %tmp.173 :FONT_NUMBER_MEDIUM;
+        %tmp.175 = lgetv %distanceStr.12;
+        symbol [ distanceStr %tmp.175 189 64 75 ];
+        symbol [ Graphics %tmp.176 189 77 85 ];
+        %tmp.176 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.177 189 86 105 ];
+        %tmp.177 = getv %tmp.176 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.169 %tmp.170(%tmp.171, %tmp.172, %tmp.174, %tmp.175, %tmp.177);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 192 8 ]
+        %tmp.178 = self;
+        symbol [ _drawStatus %tmp.179 192 8 19 ];
+        %tmp.179 = getv function %tmp.178 :_drawStatus;
+        %tmp.180 = lgetv %dc;
+        symbol [ dc %tmp.180 192 20 22 ];
+        %tmp.181 = lgetv %w.1;
+        symbol [ w %tmp.181 192 24 25 ];
+        %tmp.182 = lgetv %h.2;
+        symbol [ h %tmp.182 192 27 28 ];
+        %tmp.183 = lgetv %state.7;
+        symbol [ state %tmp.183 192 30 35 ];
+        invoke %tmp.178 %tmp.179(%tmp.180, %tmp.181, %tmp.182, %tmp.183);
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_140_49_193_4_stop:
+    }
+    [ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 198; @symbol_functiondef = [_drawStatus,198,13,24]; @symbol_param<0> = [dc,198,25,27]; @symbol_param<0>_type<0> = [Graphics,198,31,39]; @symbol_param<0>_type<1> = [Dc,198,40,42]; @symbol_param<1> = [w,198,44,45]; @symbol_param<1>_type<0> = [Number,198,49,55]; @symbol_param<2> = [h,198,57,58]; @symbol_param<2>_type<0> = [Number,198,62,68]; @symbol_param<3> = [state,198,70,75]; @symbol_param<3>_type<0> = [Number,198,79,85]; ]
+    function _drawStatus(dc as Graphics.Dc, w as Number, h as Number, state as Number) as Void {
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 199 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop" ]
+        %statusColor.1 = local;
+        symbol [ statusColor %statusColor.1 199 12 23 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 200 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop" ]
+        %statusDot.2 = local;
+        symbol [ statusDot %statusDot.2 200 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 201 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop" ]
+        %statusText.3 = local;
+        symbol [ statusText %statusText.3 201 12 22 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 203 8 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_stmt:
+        %tmp.1 = lgetv %state;
+        symbol [ state %tmp.1 203 12 17 ];
+        symbol [ STATE_CONNECTED %tmp.3 203 21 36 ];
+        %tmp.3 = getv ? :STATE_CONNECTED;
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_false;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_38_207_8_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 204 12 ]
+        symbol [ Graphics %tmp.5 204 26 34 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.6 204 35 46 ];
+        %tmp.6 = getv %tmp.5 :COLOR_GREEN;
+        lputv %statusColor.1 %tmp.6;
+        symbol [ statusColor %statusColor.1 204 12 23 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 205 12 ]
+        %tmp.7 = "●";
+        lputv %statusDot.2 %tmp.7;
+        symbol [ statusDot %statusDot.2 205 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 206 12 ]
+        %tmp.8 = "Connected";
+        lputv %statusText.3 %tmp.8;
+        symbol [ statusText %statusText.3 206 12 22 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_38_207_8_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_false:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 207 15 ]
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_stmt:
+        %tmp.9 = lgetv %state;
+        symbol [ state %tmp.9 207 19 24 ];
+        symbol [ STATE_RECONNECTING %tmp.11 207 28 46 ];
+        %tmp.11 = getv ? :STATE_RECONNECTING;
+        %tmp.12 = eq %tmp.9 %tmp.11;
+        bf %tmp.12 @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_else_false;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_true:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_48_211_8_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 208 12 ]
+        symbol [ Graphics %tmp.13 208 26 34 ];
+        %tmp.13 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.14 208 35 47 ];
+        %tmp.14 = getv %tmp.13 :COLOR_YELLOW;
+        lputv %statusColor.1 %tmp.14;
+        symbol [ statusColor %statusColor.1 208 12 23 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 209 12 ]
+        %tmp.15 = "○";
+        lputv %statusDot.2 %tmp.15;
+        symbol [ statusDot %statusDot.2 209 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 210 12 ]
+        %tmp.16 = "Reconnecting";
+        lputv %statusText.3 %tmp.16;
+        symbol [ statusText %statusText.3 210 12 22 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_48_211_8_stop:
+        goto @_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_end;
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_else_false:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_211_15_216_8_start:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 213 12 ]
+        symbol [ Graphics %tmp.17 213 26 34 ];
+        %tmp.17 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.18 213 35 47 ];
+        %tmp.18 = getv %tmp.17 :COLOR_YELLOW;
+        lputv %statusColor.1 %tmp.18;
+        symbol [ statusColor %statusColor.1 213 12 23 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 214 12 ]
+        %tmp.19 = "◌";
+        lputv %statusDot.2 %tmp.19;
+        symbol [ statusDot %statusDot.2 214 12 21 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 215 12 ]
+        %tmp.20 = "Searching...";
+        lputv %statusText.3 %tmp.20;
+        symbol [ statusText %statusText.3 215 12 22 ];
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_211_15_216_8_stop:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_207_15_216_8_if_end:
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_203_8_216_8_if_end:
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 218 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop" ]
+        %cx.4 = local;
+        symbol [ cx %cx.4 218 12 14 ];
+        %tmp.21 = lgetv %w;
+        symbol [ w %tmp.21 218 17 18 ];
+        %tmp.22 = 2;
+        %tmp.23 = div %tmp.21 %tmp.22;
+        lputv %cx.4 %tmp.23;
+        symbol [ cx %cx.4 218 12 14 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 219 8 ]
+        [ "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_start" "_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop" ]
+        %cy.5 = local;
+        symbol [ cy %cy.5 219 12 14 ];
+        %tmp.24 = lgetv %h;
+        symbol [ h %tmp.24 219 17 18 ];
+        %tmp.25 = 28;
+        %tmp.26 = sub %tmp.24 %tmp.25;
+        lputv %cy.5 %tmp.26;
+        symbol [ cy %cy.5 219 12 14 ];
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 222 8 ]
+        %tmp.27 = lgetv %dc;
+        symbol [ dc %tmp.27 222 8 10 ];
+        symbol [ setColor %tmp.28 222 11 19 ];
+        %tmp.28 = getv function %tmp.27 :setColor;
+        %tmp.29 = lgetv %statusColor.1;
+        symbol [ statusColor %tmp.29 222 20 31 ];
+        symbol [ Graphics %tmp.30 222 33 41 ];
+        %tmp.30 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.31 222 42 59 ];
+        %tmp.31 = getv %tmp.30 :COLOR_TRANSPARENT;
+        invoke %tmp.27 %tmp.28(%tmp.29, %tmp.31);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 223 8 ]
+        %tmp.32 = lgetv %dc;
+        symbol [ dc %tmp.32 223 8 10 ];
+        symbol [ drawText %tmp.33 223 11 19 ];
+        %tmp.33 = getv function %tmp.32 :drawText;
+        %tmp.34 = lgetv %cx.4;
+        symbol [ cx %tmp.34 223 20 22 ];
+        %tmp.35 = 42;
+        %tmp.36 = sub %tmp.34 %tmp.35;
+        %tmp.37 = lgetv %cy.5;
+        symbol [ cy %tmp.37 223 29 31 ];
+        symbol [ Graphics %tmp.38 223 33 41 ];
+        %tmp.38 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.39 223 42 52 ];
+        %tmp.39 = getv %tmp.38 :FONT_XTINY;
+        %tmp.40 = lgetv %statusDot.2;
+        symbol [ statusDot %tmp.40 223 54 63 ];
+        symbol [ Graphics %tmp.41 223 66 74 ];
+        %tmp.41 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.42 223 75 94 ];
+        %tmp.42 = getv %tmp.41 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.32 %tmp.33(%tmp.36, %tmp.37, %tmp.39, %tmp.40, %tmp.42);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 224 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 224 8 10 ];
+        symbol [ setColor %tmp.44 224 11 19 ];
+        %tmp.44 = getv function %tmp.43 :setColor;
+        symbol [ Graphics %tmp.45 224 20 28 ];
+        %tmp.45 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.46 224 29 42 ];
+        %tmp.46 = getv %tmp.45 :COLOR_LT_GRAY;
+        symbol [ Graphics %tmp.47 224 44 52 ];
+        %tmp.47 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.48 224 53 70 ];
+        %tmp.48 = getv %tmp.47 :COLOR_TRANSPARENT;
+        invoke %tmp.43 %tmp.44(%tmp.46, %tmp.48);
+[ "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" 225 8 ]
+        %tmp.49 = lgetv %dc;
+        symbol [ dc %tmp.49 225 8 10 ];
+        symbol [ drawText %tmp.50 225 11 19 ];
+        %tmp.50 = getv function %tmp.49 :drawText;
+        %tmp.51 = lgetv %cx.4;
+        symbol [ cx %tmp.51 225 20 22 ];
+        %tmp.52 = lgetv %cy.5;
+        symbol [ cy %tmp.52 225 29 31 ];
+        symbol [ Graphics %tmp.53 225 33 41 ];
+        %tmp.53 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.54 225 42 52 ];
+        %tmp.54 = getv %tmp.53 :FONT_XTINY;
+        %tmp.55 = lgetv %statusText.3;
+        symbol [ statusText %tmp.55 225 54 64 ];
+        symbol [ Graphics %tmp.56 225 66 74 ];
+        %tmp.56 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.57 225 75 92 ];
+        %tmp.57 = getv %tmp.56 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.49 %tmp.50(%tmp.51, %tmp.52, %tmp.54, %tmp.55, %tmp.57);
+_Users_debarshibhaumik_Documents_repos_FTMSBikeSync_source_FTMSDataField_mc_198_95_226_4_stop:
+    }
+}
+[ @file = "/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc"; @line = 14; ]
+<init> {
+}

@@ -1,0 +1,8 @@
+project.manifest = manifest.xml
+
+# Source files
+base.sourcePath = source
+base.resourcePath = resources
+
+# Compiler settings
+base.lang = monkey

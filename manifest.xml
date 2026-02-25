@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
+    <iq:application
+        entry="FTMSApp"
+        id="a3872d4c-1f2b-4e5a-9c7d-8b6e3f1a2c5d"
+        launcherIcon="@Drawables.LauncherIcon"
+        minSdkVersion="3.2.0"
+        name="@Strings.AppName"
+        type="datafield"
+        version="1.0.0">
+
+        <iq:products>
+            <iq:product id="fenix7pro"/>
+        </iq:products>
+
+        <iq:permissions>
+            <iq:uses-permission id="BluetoothLowEnergy"/>
+            <iq:uses-permission id="FitContributor"/>
+        </iq:permissions>
+
+        <iq:languages>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+
+        <iq:barrels/>
+
+    </iq:application>
+</iq:manifest>

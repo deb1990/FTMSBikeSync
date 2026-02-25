@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<strings>
+    <string id="AppName">FTMSBikeSync</string>
+    <string id="LabelPower">POWER</string>
+    <string id="LabelCadence">CADENCE</string>
+    <string id="LabelSpeed">SPEED</string>
+    <string id="LabelDistance">DISTANCE</string>
+    <string id="StatusConnected">Connected</string>
+    <string id="StatusSearching">Searching...</string>
+    <string id="StatusReconnecting">Reconnecting</string>
+</strings>

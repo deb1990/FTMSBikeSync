@@ -1,0 +1,21 @@
+# Build output
+*.prg
+*.iq
+bin/
+
+# Compiler cache
+*.mbz
+
+# Developer key — never commit this
+developer_key
+*.der
+*.pem
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Connect IQ SDK generated files
+*.jungle.bak
