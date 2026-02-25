@@ -1,7 +1,12 @@
 # Build output
 *.prg
 *.iq
+*.prg.debug.xml
 bin/
+mir/
+internal-mir/
+external-mir/
+gen/
 
 # Compiler cache
 *.mbz

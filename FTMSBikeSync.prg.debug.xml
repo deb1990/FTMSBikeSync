@@ -7,7 +7,7 @@
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSApp.mc" id="2" lineNum="24" parent="globals" pc="268435482" symbol="getApp"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSBleDelegate.mc" id="3" lineNum="28" parent="globals/FTMSBleDelegate" pc="268435493" symbol="&lt;init&gt;"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/gen/006-B4375-00/source/Rez.mcgen" id="4" lineNum="7" parent="globals/Rez" pc="268435505" symbol="&lt;init&gt;"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="5" lineNum="35" parent="globals/FTMSDataField" pc="268435525" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="5" lineNum="46" parent="globals/FTMSDataField" pc="268435525" symbol="&lt;init&gt;"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSApp.mc" id="6" lineNum="16" parent="globals/FTMSApp" pc="268435537" symbol="getInitialView"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSApp.mc" id="6" lineNum="17" parent="globals/FTMSApp" pc="268435539" symbol="getInitialView"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSApp.mc" id="7" lineNum="11" parent="globals/FTMSApp" pc="268435565" symbol="initialize"/>
@@ -97,172 +97,214 @@
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSBleDelegate.mc" id="18" lineNum="127" parent="globals/FTMSBleDelegate" pc="268436533" symbol="onScanResults"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSBleDelegate.mc" id="18" lineNum="128" parent="globals/FTMSBleDelegate" pc="268436542" symbol="onScanResults"/>
         <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSBleDelegate.mc" id="18" lineNum="129" parent="globals/FTMSBleDelegate" pc="268436556" symbol="onScanResults"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="108" parent="globals/FTMSDataField" pc="268436575" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="109" parent="globals/FTMSDataField" pc="268436578" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="110" parent="globals/FTMSDataField" pc="268436590" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="111" parent="globals/FTMSDataField" pc="268436602" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="112" parent="globals/FTMSDataField" pc="268436614" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="115" parent="globals/FTMSDataField" pc="268436626" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="116" parent="globals/FTMSDataField" pc="268436636" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="119" parent="globals/FTMSDataField" pc="268436664" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="122" parent="globals/FTMSDataField" pc="268436683" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="123" parent="globals/FTMSDataField" pc="268436705" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="123" parent="globals/FTMSDataField" pc="268436712" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="124" parent="globals/FTMSDataField" pc="268436718" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="124" parent="globals/FTMSDataField" pc="268436727" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="125" parent="globals/FTMSDataField" pc="268436735" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="128" parent="globals/FTMSDataField" pc="268436751" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="129" parent="globals/FTMSDataField" pc="268436755" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="129" parent="globals/FTMSDataField" pc="268436762" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="130" parent="globals/FTMSDataField" pc="268436768" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="130" parent="globals/FTMSDataField" pc="268436778" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="131" parent="globals/FTMSDataField" pc="268436787" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="134" parent="globals/FTMSDataField" pc="268436803" symbol="compute"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="198" parent="globals/FTMSDataField" pc="268436805" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="203" parent="globals/FTMSDataField" pc="268436808" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="204" parent="globals/FTMSDataField" pc="268436816" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="205" parent="globals/FTMSDataField" pc="268436822" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="206" parent="globals/FTMSDataField" pc="268436829" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="207" parent="globals/FTMSDataField" pc="268436839" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="208" parent="globals/FTMSDataField" pc="268436847" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="209" parent="globals/FTMSDataField" pc="268436854" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="210" parent="globals/FTMSDataField" pc="268436861" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="213" parent="globals/FTMSDataField" pc="268436871" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="214" parent="globals/FTMSDataField" pc="268436878" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="215" parent="globals/FTMSDataField" pc="268436885" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="218" parent="globals/FTMSDataField" pc="268436892" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="219" parent="globals/FTMSDataField" pc="268436899" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="222" parent="globals/FTMSDataField" pc="268436906" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="223" parent="globals/FTMSDataField" pc="268436920" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="224" parent="globals/FTMSDataField" pc="268436942" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="225" parent="globals/FTMSDataField" pc="268436959" symbol="_drawStatus"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="53" parent="globals/FTMSDataField" pc="268436979" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="54" parent="globals/FTMSDataField" pc="268436981" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="57" parent="globals/FTMSDataField" pc="268436993" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="76" parent="globals/FTMSDataField" pc="268437018" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="83" parent="globals/FTMSDataField" pc="268437073" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="90" parent="globals/FTMSDataField" pc="268437129" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="97" parent="globals/FTMSDataField" pc="268437185" symbol="initialize"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="140" parent="globals/FTMSDataField" pc="268437242" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="142" parent="globals/FTMSDataField" pc="268437245" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="143" parent="globals/FTMSDataField" pc="268437257" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="145" parent="globals/FTMSDataField" pc="268437265" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="146" parent="globals/FTMSDataField" pc="268437274" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="149" parent="globals/FTMSDataField" pc="268437283" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="150" parent="globals/FTMSDataField" pc="268437295" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="151" parent="globals/FTMSDataField" pc="268437307" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="152" parent="globals/FTMSDataField" pc="268437319" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="153" parent="globals/FTMSDataField" pc="268437331" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="156" parent="globals/FTMSDataField" pc="268437344" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="157" parent="globals/FTMSDataField" pc="268437351" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="161" parent="globals/FTMSDataField" pc="268437361" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="162" parent="globals/FTMSDataField" pc="268437378" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="163" parent="globals/FTMSDataField" pc="268437400" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="166" parent="globals/FTMSDataField" pc="268437422" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="167" parent="globals/FTMSDataField" pc="268437439" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="169" parent="globals/FTMSDataField" pc="268437470" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="173" parent="globals/FTMSDataField" pc="268437520" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="174" parent="globals/FTMSDataField" pc="268437536" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="178" parent="globals/FTMSDataField" pc="268437557" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="179" parent="globals/FTMSDataField" pc="268437574" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="180" parent="globals/FTMSDataField" pc="268437597" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="183" parent="globals/FTMSDataField" pc="268437620" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="184" parent="globals/FTMSDataField" pc="268437642" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="185" parent="globals/FTMSDataField" pc="268437652" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="187" parent="globals/FTMSDataField" pc="268437674" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="188" parent="globals/FTMSDataField" pc="268437691" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="189" parent="globals/FTMSDataField" pc="268437712" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="192" parent="globals/FTMSDataField" pc="268437733" symbol="onUpdate"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="27" parent="globals/FTMSParser" pc="268437751" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="28" parent="globals/FTMSParser" pc="268437754" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="36" parent="globals/FTMSParser" pc="268437789" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="37" parent="globals/FTMSParser" pc="268437809" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="41" parent="globals/FTMSParser" pc="268437815" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="42" parent="globals/FTMSParser" pc="268437825" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="43" parent="globals/FTMSParser" pc="268437836" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="45" parent="globals/FTMSParser" pc="268437846" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="49" parent="globals/FTMSParser" pc="268437850" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="50" parent="globals/FTMSParser" pc="268437859" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="51" parent="globals/FTMSParser" pc="268437864" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="52" parent="globals/FTMSParser" pc="268437880" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="53" parent="globals/FTMSParser" pc="268437907" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="55" parent="globals/FTMSParser" pc="268437926" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="59" parent="globals/FTMSParser" pc="268437936" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="60" parent="globals/FTMSParser" pc="268437946" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="65" parent="globals/FTMSParser" pc="268437956" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="66" parent="globals/FTMSParser" pc="268437966" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="67" parent="globals/FTMSParser" pc="268437982" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="68" parent="globals/FTMSParser" pc="268438009" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="70" parent="globals/FTMSParser" pc="268438028" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="74" parent="globals/FTMSParser" pc="268438038" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="75" parent="globals/FTMSParser" pc="268438048" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="81" parent="globals/FTMSParser" pc="268438058" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="82" parent="globals/FTMSParser" pc="268438068" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="83" parent="globals/FTMSParser" pc="268438084" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="84" parent="globals/FTMSParser" pc="268438095" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="85" parent="globals/FTMSParser" pc="268438109" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="86" parent="globals/FTMSParser" pc="268438123" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="88" parent="globals/FTMSParser" pc="268438148" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="92" parent="globals/FTMSParser" pc="268438158" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="93" parent="globals/FTMSParser" pc="268438168" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="98" parent="globals/FTMSParser" pc="268438178" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="99" parent="globals/FTMSParser" pc="268438188" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="100" parent="globals/FTMSParser" pc="268438204" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="102" parent="globals/FTMSParser" pc="268438231" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="103" parent="globals/FTMSParser" pc="268438241" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="105" parent="globals/FTMSParser" pc="268438253" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="107" parent="globals/FTMSParser" pc="268438266" symbol="parse"/>
-        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="110" parent="globals/FTMSParser" pc="268438276" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="91" parent="globals/FTMSDataField" pc="268436575" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="93" parent="globals/FTMSDataField" pc="268436578" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="94" parent="globals/FTMSDataField" pc="268436582" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="95" parent="globals/FTMSDataField" pc="268436597" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="95" parent="globals/FTMSDataField" pc="268436609" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="96" parent="globals/FTMSDataField" pc="268436621" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="97" parent="globals/FTMSDataField" pc="268436636" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="98" parent="globals/FTMSDataField" pc="268436646" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="100" parent="globals/FTMSDataField" pc="268436662" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="101" parent="globals/FTMSDataField" pc="268436672" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="105" parent="globals/FTMSDataField" pc="268436688" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="106" parent="globals/FTMSDataField" pc="268436692" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="107" parent="globals/FTMSDataField" pc="268436704" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="108" parent="globals/FTMSDataField" pc="268436716" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="109" parent="globals/FTMSDataField" pc="268436728" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="111" parent="globals/FTMSDataField" pc="268436740" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="112" parent="globals/FTMSDataField" pc="268436774" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="114" parent="globals/FTMSDataField" pc="268436793" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="115" parent="globals/FTMSDataField" pc="268436815" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="115" parent="globals/FTMSDataField" pc="268436822" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="116" parent="globals/FTMSDataField" pc="268436828" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="116" parent="globals/FTMSDataField" pc="268436837" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="117" parent="globals/FTMSDataField" pc="268436845" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="119" parent="globals/FTMSDataField" pc="268436861" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="120" parent="globals/FTMSDataField" pc="268436865" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="120" parent="globals/FTMSDataField" pc="268436872" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="121" parent="globals/FTMSDataField" pc="268436878" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="121" parent="globals/FTMSDataField" pc="268436888" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="122" parent="globals/FTMSDataField" pc="268436897" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="19" lineNum="125" parent="globals/FTMSDataField" pc="268436916" symbol="compute"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="243" parent="globals/FTMSDataField" pc="268436918" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="244" parent="globals/FTMSDataField" pc="268436921" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="245" parent="globals/FTMSDataField" pc="268436935" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="246" parent="globals/FTMSDataField" pc="268436943" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="247" parent="globals/FTMSDataField" pc="268436954" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="249" parent="globals/FTMSDataField" pc="268436961" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="250" parent="globals/FTMSDataField" pc="268436968" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="20" lineNum="252" parent="globals/FTMSDataField" pc="268437028" symbol="_formatTimer"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="65" parent="globals/FTMSDataField" pc="268437064" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="66" parent="globals/FTMSDataField" pc="268437066" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="68" parent="globals/FTMSDataField" pc="268437078" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="70" parent="globals/FTMSDataField" pc="268437128" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="74" parent="globals/FTMSDataField" pc="268437183" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="78" parent="globals/FTMSDataField" pc="268437239" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="21" lineNum="82" parent="globals/FTMSDataField" pc="268437295" symbol="initialize"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="131" parent="globals/FTMSDataField" pc="268437352" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="132" parent="globals/FTMSDataField" pc="268437355" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="133" parent="globals/FTMSDataField" pc="268437364" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="134" parent="globals/FTMSDataField" pc="268437371" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="135" parent="globals/FTMSDataField" pc="268437378" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="138" parent="globals/FTMSDataField" pc="268437388" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="139" parent="globals/FTMSDataField" pc="268437408" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="145" parent="globals/FTMSDataField" pc="268437416" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="147" parent="globals/FTMSDataField" pc="268437432" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="148" parent="globals/FTMSDataField" pc="268437448" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="149" parent="globals/FTMSDataField" pc="268437458" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="150" parent="globals/FTMSDataField" pc="268437471" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="151" parent="globals/FTMSDataField" pc="268437481" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="152" parent="globals/FTMSDataField" pc="268437495" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="153" parent="globals/FTMSDataField" pc="268437504" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="154" parent="globals/FTMSDataField" pc="268437518" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="155" parent="globals/FTMSDataField" pc="268437527" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="156" parent="globals/FTMSDataField" pc="268437541" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="158" parent="globals/FTMSDataField" pc="268437551" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="161" parent="globals/FTMSDataField" pc="268437558" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="162" parent="globals/FTMSDataField" pc="268437572" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="164" parent="globals/FTMSDataField" pc="268437588" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="165" parent="globals/FTMSDataField" pc="268437591" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="166" parent="globals/FTMSDataField" pc="268437605" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="168" parent="globals/FTMSDataField" pc="268437627" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="169" parent="globals/FTMSDataField" pc="268437658" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="172" parent="globals/FTMSDataField" pc="268437678" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="173" parent="globals/FTMSDataField" pc="268437695" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="176" parent="globals/FTMSDataField" pc="268437716" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="177" parent="globals/FTMSDataField" pc="268437732" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="178" parent="globals/FTMSDataField" pc="268437754" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="180" parent="globals/FTMSDataField" pc="268437776" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="181" parent="globals/FTMSDataField" pc="268437788" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="182" parent="globals/FTMSDataField" pc="268437800" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="183" parent="globals/FTMSDataField" pc="268437823" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="185" parent="globals/FTMSDataField" pc="268437839" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="186" parent="globals/FTMSDataField" pc="268437852" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="187" parent="globals/FTMSDataField" pc="268437872" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="190" parent="globals/FTMSDataField" pc="268437892" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="191" parent="globals/FTMSDataField" pc="268437909" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="194" parent="globals/FTMSDataField" pc="268437928" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="195" parent="globals/FTMSDataField" pc="268437945" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="198" parent="globals/FTMSDataField" pc="268437968" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="199" parent="globals/FTMSDataField" pc="268437984" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="200" parent="globals/FTMSDataField" pc="268438007" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="202" parent="globals/FTMSDataField" pc="268438030" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="203" parent="globals/FTMSDataField" pc="268438043" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="204" parent="globals/FTMSDataField" pc="268438055" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="205" parent="globals/FTMSDataField" pc="268438067" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="207" parent="globals/FTMSDataField" pc="268438093" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="211" parent="globals/FTMSDataField" pc="268438138" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="212" parent="globals/FTMSDataField" pc="268438155" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="215" parent="globals/FTMSDataField" pc="268438175" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="216" parent="globals/FTMSDataField" pc="268438192" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="221" parent="globals/FTMSDataField" pc="268438215" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="222" parent="globals/FTMSDataField" pc="268438222" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="223" parent="globals/FTMSDataField" pc="268438229" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="224" parent="globals/FTMSDataField" pc="268438243" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="225" parent="globals/FTMSDataField" pc="268438257" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="227" parent="globals/FTMSDataField" pc="268438270" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="228" parent="globals/FTMSDataField" pc="268438286" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="230" parent="globals/FTMSDataField" pc="268438306" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="231" parent="globals/FTMSDataField" pc="268438319" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="232" parent="globals/FTMSDataField" pc="268438341" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="233" parent="globals/FTMSDataField" pc="268438355" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="235" parent="globals/FTMSDataField" pc="268438378" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="22" lineNum="236" parent="globals/FTMSDataField" pc="268438391" symbol="onUpdate"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="27" parent="globals/FTMSParser" pc="268438424" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="28" parent="globals/FTMSParser" pc="268438427" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="36" parent="globals/FTMSParser" pc="268438462" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="37" parent="globals/FTMSParser" pc="268438482" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="41" parent="globals/FTMSParser" pc="268438488" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="42" parent="globals/FTMSParser" pc="268438498" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="43" parent="globals/FTMSParser" pc="268438509" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="45" parent="globals/FTMSParser" pc="268438519" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="49" parent="globals/FTMSParser" pc="268438523" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="50" parent="globals/FTMSParser" pc="268438532" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="51" parent="globals/FTMSParser" pc="268438537" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="52" parent="globals/FTMSParser" pc="268438553" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="53" parent="globals/FTMSParser" pc="268438580" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="55" parent="globals/FTMSParser" pc="268438599" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="59" parent="globals/FTMSParser" pc="268438609" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="60" parent="globals/FTMSParser" pc="268438619" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="65" parent="globals/FTMSParser" pc="268438629" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="66" parent="globals/FTMSParser" pc="268438639" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="67" parent="globals/FTMSParser" pc="268438655" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="68" parent="globals/FTMSParser" pc="268438682" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="70" parent="globals/FTMSParser" pc="268438701" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="74" parent="globals/FTMSParser" pc="268438711" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="75" parent="globals/FTMSParser" pc="268438721" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="81" parent="globals/FTMSParser" pc="268438731" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="82" parent="globals/FTMSParser" pc="268438741" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="83" parent="globals/FTMSParser" pc="268438757" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="84" parent="globals/FTMSParser" pc="268438768" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="85" parent="globals/FTMSParser" pc="268438782" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="86" parent="globals/FTMSParser" pc="268438796" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="88" parent="globals/FTMSParser" pc="268438821" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="92" parent="globals/FTMSParser" pc="268438831" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="93" parent="globals/FTMSParser" pc="268438841" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="98" parent="globals/FTMSParser" pc="268438851" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="99" parent="globals/FTMSParser" pc="268438861" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="100" parent="globals/FTMSParser" pc="268438877" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="102" parent="globals/FTMSParser" pc="268438904" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="103" parent="globals/FTMSParser" pc="268438914" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="105" parent="globals/FTMSParser" pc="268438926" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="107" parent="globals/FTMSParser" pc="268438939" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSParser.mc" id="24" lineNum="110" parent="globals/FTMSParser" pc="268438949" symbol="parse"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="25" lineNum="43" parent="globals/FTMSMockDelegate" pc="268438952" symbol="getState"/>
+        <entry filename="/Users/debarshibhaumik/Documents/repos/FTMSBikeSync/source/FTMSDataField.mc" id="25" lineNum="43" parent="globals/FTMSMockDelegate" pc="268438954" symbol="getState"/>
     </pcToLineNum>
     <symbolTable>
+        <entry field="true" id="30" symbol="_mockHr"/>
         <entry id="8388639" module="true" symbol="Graphics"/>
-        <entry field="true" id="31" symbol="LabelDistance"/>
+        <entry field="true" id="35" symbol="LabelDistance"/>
         <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
-        <entry id="12" method="true" symbol="_enableNotifications"/>
+        <entry id="13" method="true" symbol="_enableNotifications"/>
         <entry id="8389849" symbol="units"/>
-        <entry id="8388638" module="true" symbol="ActivityRecording"/>
-        <entry field="true" id="30" symbol="LabelCadence"/>
+        <entry id="28" method="true" symbol="_formatTimer"/>
+        <entry field="true" id="34" symbol="LabelCadence"/>
         <entry field="true" id="24" symbol="_fitCadence"/>
-        <entry field="true" id="19" symbol="distanceM"/>
+        <entry id="8388647" module="true" symbol="UserProfile"/>
+        <entry field="true" id="20" symbol="distanceM"/>
+        <entry field="true" id="29" symbol="_heartRate"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="31" symbol="_timerMs"/>
         <entry id="8391256" method="true" symbol="onScanResults"/>
-        <entry field="true" id="29" symbol="AppName"/>
+        <entry field="true" id="33" symbol="AppName"/>
         <entry id="8391262" method="true" symbol="onDescriptorWrite"/>
         <entry id="5" module="true" symbol="globals/Rez/Strings"/>
-        <entry field="true" id="16" symbol="_state"/>
+        <entry field="true" id="17" symbol="_state"/>
         <entry id="8388631" module="true" symbol="Activity"/>
-        <entry field="true" id="11" symbol="FTMS_SERVICE_UUID"/>
+        <entry field="true" id="12" symbol="FTMS_SERVICE_UUID"/>
         <entry id="8388648" module="true" symbol="WatchUi"/>
         <entry id="3" module="true" symbol="globals/Rez"/>
         <entry id="8391340" symbol="descriptors"/>
-        <entry id="23" method="true" symbol="_drawStatus"/>
         <entry id="8389124" method="true" symbol="onUpdate"/>
-        <entry id="15" method="true" symbol="_startScan"/>
+        <entry id="16" method="true" symbol="_startScan"/>
         <entry id="8391263" method="true" symbol="onCharacteristicChanged"/>
-        <entry field="true" id="22" symbol="_ble"/>
+        <entry field="true" id="23" symbol="_ble"/>
         <entry id="8389299" method="true" symbol="parse"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
         <entry id="8391258" method="true" symbol="onConnectedStateChanged"/>
         <entry id="8389275" method="true" symbol="getApp"/>
-        <entry field="true" id="34" symbol="StatusConnected"/>
-        <entry field="true" id="10" symbol="FTMS_CHAR_UUID"/>
+        <entry field="true" id="38" symbol="StatusConnected"/>
+        <entry id="9" object="true" symbol="FTMSMockDelegate"/>
+        <entry field="true" id="11" symbol="FTMS_CHAR_UUID"/>
         <entry id="8389137" method="true" symbol="compute"/>
         <entry id="8389936" symbol="nativeNum"/>
         <entry field="true" id="25" symbol="_fitDistance"/>
-        <entry field="true" id="36" symbol="StatusSearching"/>
+        <entry field="true" id="40" symbol="StatusSearching"/>
         <entry field="true" id="27" symbol="_fitSpeed"/>
         <entry id="4" module="true" symbol="globals/Rez/Drawables"/>
-        <entry field="true" id="35" symbol="StatusReconnecting"/>
+        <entry field="true" id="39" symbol="StatusReconnecting"/>
         <entry field="true" id="26" symbol="_fitPower"/>
-        <entry field="true" id="33" symbol="LabelSpeed"/>
+        <entry field="true" id="37" symbol="LabelSpeed"/>
         <entry id="8388644" module="true" symbol="System"/>
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
-        <entry id="14" method="true" symbol="_registerProfile"/>
-        <entry field="true" id="32" symbol="LabelPower"/>
-        <entry field="true" id="21" symbol="speedKph"/>
+        <entry id="15" method="true" symbol="_registerProfile"/>
+        <entry field="true" id="36" symbol="LabelPower"/>
+        <entry field="true" id="22" symbol="speedKph"/>
         <entry id="8" object="true" symbol="FTMSDataField"/>
         <entry id="8388640" module="true" symbol="Lang"/>
-        <entry field="true" id="28" symbol="LauncherIcon"/>
+        <entry field="true" id="32" symbol="LauncherIcon"/>
         <entry id="8388610" symbol="statics"/>
         <entry id="8389350" module="true" symbol="globals"/>
         <entry id="8391334" symbol="uuid"/>
@@ -271,18 +313,19 @@
         <entry id="8388702" method="true" symbol="initialize"/>
         <entry id="2" module="true" symbol="globals/FTMSParser/&lt;statics&gt;"/>
         <entry id="8389780" module="true" symbol="FitContributor"/>
-        <entry field="true" id="20" symbol="powerW"/>
+        <entry field="true" id="21" symbol="powerW"/>
         <entry id="8389902" method="true" symbol="getState"/>
+        <entry id="8388641" module="true" symbol="Math"/>
         <entry id="8389280" method="true" symbol="getInitialView"/>
         <entry id="8389847" symbol="mesgType"/>
         <entry id="7" object="true" symbol="FTMSBleDelegate"/>
         <entry id="8391341" symbol="characteristics"/>
-        <entry id="13" method="true" symbol="_hasFtmsService"/>
-        <entry field="true" id="18" symbol="cadenceRpm"/>
+        <entry id="14" method="true" symbol="_hasFtmsService"/>
+        <entry field="true" id="19" symbol="cadenceRpm"/>
         <entry id="8388635" module="true" symbol="Application"/>
         <entry id="6" object="true" symbol="FTMSApp"/>
-        <entry id="9" object="true" symbol="FTMSParser"/>
-        <entry id="17" method="true" symbol="_zeroMetrics"/>
+        <entry id="10" object="true" symbol="FTMSParser"/>
+        <entry id="18" method="true" symbol="_zeroMetrics"/>
     </symbolTable>
     <localVars>
         <entry arg="true" endPc="268435705" name="characteristic" stackId="1" startPc="268435580"/>
@@ -304,49 +347,53 @@
         <entry endPc="268436573" name="bestResult" stackId="3" startPc="268436353"/>
         <entry endPc="268436526" name="result" stackId="4" startPc="268436404"/>
         <entry endPc="268436498" name="deviceName" stackId="5" startPc="268436458"/>
-        <entry arg="true" endPc="268436804" name="info" stackId="1" startPc="268436575"/>
-        <entry endPc="268436804" name="speedKph" stackId="2" startPc="268436578"/>
-        <entry endPc="268436804" name="cadenceRpm" stackId="3" startPc="268436578"/>
-        <entry endPc="268436804" name="distanceM" stackId="4" startPc="268436578"/>
-        <entry endPc="268436804" name="powerW" stackId="5" startPc="268436578"/>
-        <entry endPc="268436804" name="speedMs" stackId="6" startPc="268436578"/>
-        <entry endPc="268436804" name="cadenceInt" stackId="7" startPc="268436578"/>
-        <entry endPc="268436804" name="powerInt" stackId="8" startPc="268436578"/>
-        <entry arg="true" endPc="268436978" name="dc" stackId="1" startPc="268436805"/>
-        <entry arg="true" endPc="268436978" name="w" stackId="2" startPc="268436805"/>
-        <entry arg="true" endPc="268436978" name="h" stackId="3" startPc="268436805"/>
-        <entry arg="true" endPc="268436978" name="state" stackId="4" startPc="268436805"/>
-        <entry endPc="268436977" name="statusColor" stackId="5" startPc="268436808"/>
-        <entry endPc="268436977" name="statusDot" stackId="6" startPc="268436808"/>
-        <entry endPc="268436977" name="statusText" stackId="7" startPc="268436808"/>
-        <entry endPc="268436977" name="cx" stackId="8" startPc="268436808"/>
-        <entry endPc="268436977" name="cy" stackId="9" startPc="268436808"/>
-        <entry arg="true" endPc="268437750" name="dc" stackId="1" startPc="268437242"/>
-        <entry endPc="268437749" name="w" stackId="2" startPc="268437245"/>
-        <entry endPc="268437749" name="h" stackId="3" startPc="268437245"/>
-        <entry endPc="268437749" name="speedKph" stackId="4" startPc="268437245"/>
-        <entry endPc="268437749" name="cadenceRpm" stackId="5" startPc="268437245"/>
-        <entry endPc="268437749" name="distanceM" stackId="6" startPc="268437245"/>
-        <entry endPc="268437749" name="powerW" stackId="7" startPc="268437245"/>
-        <entry endPc="268437749" name="state" stackId="8" startPc="268437245"/>
-        <entry endPc="268437749" name="colLeft" stackId="9" startPc="268437245"/>
-        <entry endPc="268437749" name="colRight" stackId="10" startPc="268437245"/>
-        <entry endPc="268437749" name="speedStr" stackId="11" startPc="268437245"/>
-        <entry endPc="268437749" name="distanceKm" stackId="12" startPc="268437245"/>
-        <entry endPc="268437749" name="distanceStr" stackId="13" startPc="268437245"/>
-        <entry arg="true" endPc="268438278" name="data" stackId="1" startPc="268437751"/>
-        <entry endPc="268438278" name="result" stackId="2" startPc="268437754"/>
-        <entry endPc="268438278" name="flagLow" stackId="3" startPc="268437754"/>
-        <entry endPc="268438278" name="flagHigh" stackId="4" startPc="268437754"/>
-        <entry endPc="268438278" name="flags" stackId="5" startPc="268437754"/>
-        <entry endPc="268438278" name="offset" stackId="6" startPc="268437754"/>
-        <entry endPc="268438278" name="speedPresent" stackId="7" startPc="268437754"/>
-        <entry endPc="268437922" name="raw" stackId="8" startPc="268437880"/>
-        <entry endPc="268438024" name="raw" stackId="9" startPc="268437982"/>
-        <entry endPc="268438144" name="b0" stackId="10" startPc="268438084"/>
-        <entry endPc="268438144" name="b1" stackId="11" startPc="268438084"/>
-        <entry endPc="268438144" name="b2" stackId="12" startPc="268438084"/>
-        <entry endPc="268438262" name="raw" stackId="13" startPc="268438204"/>
+        <entry arg="true" endPc="268436917" name="info" stackId="1" startPc="268436575"/>
+        <entry endPc="268436912" name="speedKph" stackId="2" startPc="268436692"/>
+        <entry endPc="268436912" name="cadenceRpm" stackId="3" startPc="268436692"/>
+        <entry endPc="268436912" name="distanceM" stackId="4" startPc="268436692"/>
+        <entry endPc="268436912" name="powerW" stackId="5" startPc="268436692"/>
+        <entry endPc="268436912" name="cadenceInt" stackId="6" startPc="268436692"/>
+        <entry endPc="268436912" name="powerInt" stackId="7" startPc="268436692"/>
+        <entry arg="true" endPc="268437063" name="ms" stackId="1" startPc="268436918"/>
+        <entry endPc="268437063" name="s" stackId="2" startPc="268436921"/>
+        <entry endPc="268437063" name="h" stackId="3" startPc="268436921"/>
+        <entry endPc="268437063" name="m" stackId="4" startPc="268436921"/>
+        <entry endPc="268437063" name="sec" stackId="5" startPc="268436921"/>
+        <entry arg="true" endPc="268438423" name="dc" stackId="1" startPc="268437352"/>
+        <entry endPc="268438422" name="w" stackId="2" startPc="268437355"/>
+        <entry endPc="268438422" name="mid" stackId="3" startPc="268437355"/>
+        <entry endPc="268438422" name="colL" stackId="4" startPc="268437355"/>
+        <entry endPc="268438422" name="colR" stackId="5" startPc="268437355"/>
+        <entry endPc="268438422" name="zoneColor" stackId="6" startPc="268437355"/>
+        <entry endPc="268438422" name="zones" stackId="7" startPc="268437355"/>
+        <entry endPc="268438422" name="hrTextColor" stackId="8" startPc="268437355"/>
+        <entry endPc="268438422" name="hrStr" stackId="9" startPc="268437355"/>
+        <entry endPc="268438422" name="distM" stackId="10" startPc="268437355"/>
+        <entry endPc="268438422" name="speedKph" stackId="11" startPc="268437355"/>
+        <entry endPc="268438422" name="distStr" stackId="12" startPc="268437355"/>
+        <entry endPc="268438422" name="speedStr" stackId="13" startPc="268437355"/>
+        <entry endPc="268438422" name="powerW" stackId="14" startPc="268437355"/>
+        <entry endPc="268438422" name="cadenceRpm" stackId="15" startPc="268437355"/>
+        <entry endPc="268438422" name="timerLabel" stackId="16" startPc="268437355"/>
+        <entry endPc="268438422" name="statusDot" stackId="17" startPc="268437355"/>
+        <entry endPc="268438422" name="labelW" stackId="18" startPc="268437355"/>
+        <entry endPc="268438422" name="dotW" stackId="19" startPc="268437355"/>
+        <entry endPc="268438422" name="startX" stackId="20" startPc="268437355"/>
+        <entry endPc="268438422" name="bleState" stackId="21" startPc="268437355"/>
+        <entry endPc="268438422" name="dotColor" stackId="22" startPc="268437355"/>
+        <entry arg="true" endPc="268438951" name="data" stackId="1" startPc="268438424"/>
+        <entry endPc="268438951" name="result" stackId="2" startPc="268438427"/>
+        <entry endPc="268438951" name="flagLow" stackId="3" startPc="268438427"/>
+        <entry endPc="268438951" name="flagHigh" stackId="4" startPc="268438427"/>
+        <entry endPc="268438951" name="flags" stackId="5" startPc="268438427"/>
+        <entry endPc="268438951" name="offset" stackId="6" startPc="268438427"/>
+        <entry endPc="268438951" name="speedPresent" stackId="7" startPc="268438427"/>
+        <entry endPc="268438595" name="raw" stackId="8" startPc="268438553"/>
+        <entry endPc="268438697" name="raw" stackId="9" startPc="268438655"/>
+        <entry endPc="268438817" name="b0" stackId="10" startPc="268438757"/>
+        <entry endPc="268438817" name="b1" stackId="11" startPc="268438757"/>
+        <entry endPc="268438817" name="b2" stackId="12" startPc="268438757"/>
+        <entry endPc="268438935" name="raw" stackId="13" startPc="268438877"/>
     </localVars>
     <deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B4375-00"/>
     <annotations>
@@ -362,14 +409,15 @@
     </annotations>
     <dataEntryOffsetMappings>
         <dataEntry label="globals" offset="58" parentId="" symbolId="globals" type="module"/>
-        <dataEntry label="globals/FTMSApp" offset="143" parentId="globals" symbolId="FTMSApp" type="class"/>
-        <dataEntry label="globals/FTMSBleDelegate" offset="196" parentId="globals" symbolId="FTMSBleDelegate" type="class"/>
-        <dataEntry label="globals/Rez" offset="393" parentId="globals" symbolId="Rez" type="module"/>
-        <dataEntry label="globals/FTMSDataField" offset="437" parentId="globals" symbolId="FTMSDataField" type="class"/>
-        <dataEntry label="globals/FTMSParser" offset="553" parentId="globals" symbolId="FTMSParser" type="class"/>
-        <dataEntry label="globals/FTMSParser/&lt;statics&gt;" offset="601" parentId="FTMSParser" symbolId="&lt;statics&gt;" type="module"/>
-        <dataEntry label="globals/Rez/Drawables" offset="632" parentId="Rez" symbolId="Drawables" type="module"/>
-        <dataEntry label="globals/Rez/Strings" offset="667" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/FTMSApp" offset="152" parentId="globals" symbolId="FTMSApp" type="class"/>
+        <dataEntry label="globals/FTMSBleDelegate" offset="205" parentId="globals" symbolId="FTMSBleDelegate" type="class"/>
+        <dataEntry label="globals/Rez" offset="402" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/FTMSDataField" offset="446" parentId="globals" symbolId="FTMSDataField" type="class"/>
+        <dataEntry label="globals/FTMSParser" offset="589" parentId="globals" symbolId="FTMSParser" type="class"/>
+        <dataEntry label="globals/FTMSParser/&lt;statics&gt;" offset="637" parentId="FTMSParser" symbolId="&lt;statics&gt;" type="module"/>
+        <dataEntry label="globals/FTMSMockDelegate" offset="668" parentId="globals" symbolId="FTMSMockDelegate" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="757" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="792" parentId="Rez" symbolId="Strings" type="module"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" endPc="268435471" name="&lt;init&gt;" parent="FTMSApp" startPc="268435460">
@@ -391,6 +439,9 @@
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="&lt;init&gt;" parent="globals/FTMSParser">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="FTMSMockDelegate">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" endPc="268435564" name="getInitialView" parent="FTMSApp" startPc="268435537">
@@ -447,29 +498,32 @@
         <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436804" name="compute" parent="FTMSDataField" startPc="268436575">
+        <functionEntry accessMode="public" endPc="268436917" name="compute" parent="FTMSDataField" startPc="268436575">
             <param id="info"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436978" name="_drawStatus" parent="FTMSDataField" startPc="268436805">
-            <param id="dc"/>
-            <param id="w"/>
-            <param id="h"/>
-            <param id="state"/>
+        <functionEntry accessMode="public" endPc="268437063" name="_formatTimer" parent="FTMSDataField" startPc="268436918">
+            <param id="ms"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268437241" name="initialize" parent="FTMSDataField" startPc="268436979">
+        <functionEntry accessMode="public" endPc="268437351" name="initialize" parent="FTMSDataField" startPc="268437064">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268437750" name="onUpdate" parent="FTMSDataField" startPc="268437242">
+        <functionEntry accessMode="public" endPc="268438423" name="onUpdate" parent="FTMSDataField" startPc="268437352">
             <param id="dc"/>
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="initialize" parent="FTMSParser">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268438278" name="parse" parent="FTMSParser" startPc="268437751">
+        <functionEntry accessMode="public" endPc="268438951" name="parse" parent="FTMSParser" startPc="268438424">
             <param id="data"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438956" name="getState" parent="FTMSMockDelegate" startPc="268438952">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="FTMSMockDelegate">
             <documentation/>
         </functionEntry>
     </functions>
