@@ -1,6 +1,6 @@
 # FTMSBikeSync
 
-A Garmin Connect IQ full-screen Data Field for the **Fenix 7 Pro** that connects to any FTMS-compatible indoor exercise bike over Bluetooth and displays live metrics during your activity.
+A Garmin Connect IQ full-screen Data Field for **fēnix 7/8 series** watches that connects to any FTMS-compatible indoor exercise bike over Bluetooth and displays live metrics during your activity.
 
 ## Features
 
@@ -32,17 +32,30 @@ A Garmin Connect IQ full-screen Data Field for the **Fenix 7 Pro** that connects
 
 ## Supported Devices
 
-| Device      | Supported |
-| ----------- | --------- |
-| Fenix 7 Pro | ✅        |
+All devices require BLE central mode (the app uses `BleDelegate` for FTMS scanning).
 
-> Other devices require BLE central mode support. To check compatibility, look for `BleDelegate` in the device's `api.debug.xml` in your Connect IQ SDK.
+| Device                  | Product ID          |
+| ----------------------- | ------------------- |
+| fēnix 7                 | `fenix7`            |
+| fēnix 7S                | `fenix7s`           |
+| fēnix 7X                | `fenix7x`           |
+| fēnix 7 Pro             | `fenix7pro`         |
+| fēnix 7S Pro            | `fenix7spro`        |
+| fēnix 7X Pro            | `fenix7xpro`        |
+| fēnix 7 Pro (no Wi-Fi)  | `fenix7pronowifi`   |
+| fēnix 7X Pro (no Wi-Fi) | `fenix7xpronowifi`  |
+| fēnix 8 43mm            | `fenix843mm`        |
+| fēnix 8 47mm            | `fenix847mm`        |
+| fēnix 8 Pro 47mm        | `fenix8pro47mm`     |
+| fēnix 8 Solar 47mm      | `fenix8solar47mm`   |
+| fēnix 8 Solar 51mm      | `fenix8solar51mm`   |
+| fēnix E                 | `fenixe`            |
 
 ## Requirements
 
 - [Garmin Connect IQ SDK](https://developer.garmin.com/connect-iq/sdk/) 3.2.0+
 - A Garmin developer key
-- A Fenix 7 Pro running Connect IQ 3.2.0 or later
+- A supported fēnix 7 or fēnix 8 series watch running Connect IQ 3.2.0 or later
 - An FTMS-compatible indoor bike (BLE service UUID `0x1826`)
 
 ## Building
@@ -57,7 +70,7 @@ monkeyc -f monkey.jungle -o FTMSBikeSync.prg -y ~/developer_key -d fenix7pro
 For a release package (to submit to the Connect IQ store):
 
 ```bash
-monkeyc -f monkey.jungle -o FTMSBikeSync.iq -y ~/developer_key -d fenix7pro -r -e
+monkeyc -f monkey.jungle -o FTMSBikeSync.iq -y ~/developer_key -r -e
 ```
 
 ## Simulator Testing

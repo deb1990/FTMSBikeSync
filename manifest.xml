@@ -10,7 +10,23 @@
         version="1.0.0">
 
         <iq:products>
+            <!-- fēnix 7 series -->
+            <iq:product id="fenix7"/>
+            <iq:product id="fenix7s"/>
+            <iq:product id="fenix7x"/>
             <iq:product id="fenix7pro"/>
+            <iq:product id="fenix7spro"/>
+            <iq:product id="fenix7xpro"/>
+            <iq:product id="fenix7pronowifi"/>
+            <iq:product id="fenix7xpronowifi"/>
+            <!-- fēnix 8 series -->
+            <iq:product id="fenix843mm"/>
+            <iq:product id="fenix847mm"/>
+            <iq:product id="fenix8pro47mm"/>
+            <iq:product id="fenix8solar47mm"/>
+            <iq:product id="fenix8solar51mm"/>
+            <!-- fēnix E -->
+            <iq:product id="fenixe"/>
         </iq:products>
 
         <iq:permissions>

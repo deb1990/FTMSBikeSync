@@ -31,7 +31,7 @@ const FIT_FIELD_POWER    = 7;
 // Set USE_MOCK_DATA = true to test UI in the simulator (no BLE needed).
 // Set to false before deploying to the watch.
 // -----------------------------------------------------------------------
-const USE_MOCK_DATA = false;
+const USE_MOCK_DATA = true;
 
 // Mock delegate — same public interface as FTMSBleDelegate but no BLE calls.
 // Used in the simulator so the UI can be tested without crashing.
@@ -129,111 +129,124 @@ class FTMSDataField extends WatchUi.DataField {
     // onUpdate — draw the full screen
     // -----------------------------------------------------------------------
     function onUpdate(dc as Graphics.Dc) as Void {
-        var w   = dc.getWidth();
-        var mid = w / 2;
+        var h    = dc.getHeight();
+        var w    = dc.getWidth();
+        var mid  = w / 2;
         var colL = w / 4;
         var colR = (w * 3) / 4;
+
+        // Row dividers: 27% / 23% / 23% / 27%
+        var div1 = h * 27 / 100;
+        var div2 = h * 50 / 100;
+        var div3 = h * 73 / 100;
+
+        // Font heights for vertical centering
+        var tinyH = dc.getFontHeight(Graphics.FONT_XTINY);
+        var medH  = dc.getFontHeight(Graphics.FONT_MEDIUM);
+        var gap   = -2;
 
         // White background
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_WHITE);
         dc.clear();
 
-        // ---- Row 1: HR Zone Background (Y 0–80) -----------------------------
-        // Fill entire section with zone colour; text is white over it.
-        // Zones array from watch settings: [z1_low, z2_low, z3_low, z4_low, z5_low, z5_high]
+        // ---- Row 1: HR Zone Background (27%) --------------------------------
         var zoneColor;
         var zones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_BIKING);
-        // zones[] contains upper bounds: zones[0]=z1_max, zones[1]=z2_max, ...
         if (_heartRate <= 0 || zones == null) {
-            zoneColor = Graphics.COLOR_LT_GRAY;  // no data
+            zoneColor = Graphics.COLOR_LT_GRAY;
         } else if (_heartRate <= zones[0]) {
-            zoneColor = Graphics.COLOR_LT_GRAY;  // zone 1 — warm up
+            zoneColor = Graphics.COLOR_LT_GRAY;   // zone 1 — warm up
         } else if (_heartRate <= zones[1]) {
-            zoneColor = Graphics.COLOR_BLUE;      // zone 2 — easy
+            zoneColor = Graphics.COLOR_BLUE;       // zone 2 — easy
         } else if (_heartRate <= zones[2]) {
-            zoneColor = Graphics.COLOR_GREEN;     // zone 3 — aerobic
+            zoneColor = Graphics.COLOR_GREEN;      // zone 3 — aerobic
         } else if (_heartRate <= zones[3]) {
-            zoneColor = Graphics.COLOR_ORANGE;    // zone 4 — threshold
+            zoneColor = Graphics.COLOR_ORANGE;     // zone 4 — threshold
         } else {
-            zoneColor = Graphics.COLOR_RED;       // zone 5 — maximum
+            zoneColor = Graphics.COLOR_RED;        // zone 5 — maximum
         }
 
         dc.setColor(zoneColor, zoneColor);
-        dc.fillRectangle(0, 0, w, 80);
+        dc.fillRectangle(0, 0, w, div1);
 
-        var hrTextColor = Graphics.COLOR_BLACK;
+        var hotH  = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
+        var r1VY  = (div1 - hotH) / 2;
+        var hrTextColor = (zoneColor == Graphics.COLOR_LT_GRAY)
+            ? Graphics.COLOR_BLACK : Graphics.COLOR_WHITE;
         dc.setColor(hrTextColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(mid, 12, Graphics.FONT_XTINY, "HR", Graphics.TEXT_JUSTIFY_CENTER);
-
         var hrStr = (_heartRate > 0) ? _heartRate.toString() : "--";
-        dc.drawText(mid, 24, Graphics.FONT_NUMBER_MILD, hrStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(mid, r1VY, Graphics.FONT_NUMBER_MEDIUM, hrStr, Graphics.TEXT_JUSTIFY_CENTER);
 
-        // ---- Divider 1 (Y 80) ----------------------------------------------
+        // ---- Divider 1 ------------------------------------------------------
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(15, 80, w - 15, 80);
+        dc.drawLine(15, div1, w - 15, div1);
 
-        // ---- Row 2: Distance | Speed (Y 84–132) ----------------------------
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(colL, 84, Graphics.FONT_XTINY, "DIST (km)",    Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, 84, Graphics.FONT_XTINY, "SPEED (km/h)", Graphics.TEXT_JUSTIFY_CENTER);
+        // ---- Row 2: Distance | Speed (23%) ----------------------------------
+        var r2LY = div1 + (div2 - div1 - tinyH - gap - medH) / 2;
+        var r2VY = r2LY + tinyH + gap;
+
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(colL, r2LY, Graphics.FONT_XTINY, "DIST (km)",    Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colR, r2LY, Graphics.FONT_XTINY, "SPD (km/h)", Graphics.TEXT_JUSTIFY_CENTER);
 
         var distM    = _ble.distanceM;
         var speedKph = _ble.speedKph;
-        var distStr  = (distM / 1000.0f).format("%.2f");
-        var speedStr = speedKph.format("%.1f");
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(colL, r2VY, Graphics.FONT_MEDIUM,
+            (distM / 1000.0f).format("%.2f"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colR, r2VY, Graphics.FONT_MEDIUM,
+            speedKph.format("%.1f"),           Graphics.TEXT_JUSTIFY_CENTER);
+
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawLine(mid, div1 + 1, mid, div2);
+
+        // ---- Divider 2 ------------------------------------------------------
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawLine(15, div2, w - 15, div2);
+
+        // ---- Row 3: Power | Cadence (23%) -----------------------------------
+        var r3LY = div2 + (div3 - div2 - tinyH - gap - medH) / 2;
+        var r3VY = r3LY + tinyH + gap;
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(colL, 98, Graphics.FONT_MEDIUM, distStr,  Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, 98, Graphics.FONT_MEDIUM, speedStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colL, r3LY, Graphics.FONT_XTINY, "PWR (W)",     Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colR, r3LY, Graphics.FONT_XTINY, "CAD (rpm)", Graphics.TEXT_JUSTIFY_CENTER);
 
-        // Vertical divider
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(mid, 81, mid, 132);
-
-        // ---- Divider 2 (Y 134) ---------------------------------------------
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(15, 134, w - 15, 134);
-
-        // ---- Row 3: Power | Cadence (Y 138–186) ----------------------------
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(colL, 138, Graphics.FONT_XTINY, "POWER (W)",     Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, 138, Graphics.FONT_XTINY, "CADENCE (rpm)", Graphics.TEXT_JUSTIFY_CENTER);
-
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
         var powerW     = _ble.powerW;
         var cadenceRpm = _ble.cadenceRpm;
-        dc.drawText(colL, 152, Graphics.FONT_MEDIUM,
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(colL, r3VY, Graphics.FONT_MEDIUM,
             powerW.toString(), Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, 152, Graphics.FONT_MEDIUM,
+        dc.drawText(colR, r3VY, Graphics.FONT_MEDIUM,
             Math.round(cadenceRpm).toNumber().toString(), Graphics.TEXT_JUSTIFY_CENTER);
 
-        // Vertical divider
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(mid, 135, mid, 186);
+        dc.drawLine(mid, div2 + 1, mid, div3);
 
-        // ---- Divider 3 (Y 188) ---------------------------------------------
+        // ---- Divider 3 ------------------------------------------------------
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(15, 188, w - 15, 188);
+        dc.drawLine(15, div3, w - 15, div3);
 
-        // ---- Row 4: Timer (Y 192–250) --------------------------------------
-        // "TIMER" label + coloured status dot drawn as two text calls so they
-        // can have different colours while remaining visually centred together.
+        // ---- Row 4: Timer (27%) --------------------------------------------
+        var r4LY = div3 + (h - div3 - tinyH - gap - medH) / 2;
+        var r4VY = r4LY + tinyH + gap;
+
         var timerLabel = "TIMER";
-        var statusDot  = " \u25CF"; // "●"
+        var statusDot  = " \u25CF";
         var labelW = dc.getTextWidthInPixels(timerLabel, Graphics.FONT_XTINY);
         var dotW   = dc.getTextWidthInPixels(statusDot,  Graphics.FONT_XTINY);
         var startX = mid - (labelW + dotW) / 2;
 
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(startX, 192, Graphics.FONT_XTINY, timerLabel, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(startX, r4LY, Graphics.FONT_XTINY, timerLabel, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var bleState   = _ble.getState();
-        var dotColor   = (bleState == STATE_CONNECTED) ? Graphics.COLOR_GREEN : Graphics.COLOR_YELLOW;
+        var bleState = _ble.getState();
+        var dotColor = (bleState == STATE_CONNECTED) ? Graphics.COLOR_GREEN : Graphics.COLOR_YELLOW;
         dc.setColor(dotColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(startX + labelW, 192, Graphics.FONT_XTINY, statusDot, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(startX + labelW, r4LY, Graphics.FONT_XTINY, statusDot, Graphics.TEXT_JUSTIFY_LEFT);
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(mid, 206, Graphics.FONT_MEDIUM, _formatTimer(_timerMs),
+        dc.drawText(mid, r4VY, Graphics.FONT_MEDIUM, _formatTimer(_timerMs),
             Graphics.TEXT_JUSTIFY_CENTER);
     }
 
