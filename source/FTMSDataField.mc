@@ -31,7 +31,7 @@ const FIT_FIELD_POWER    = 7;
 // Set USE_MOCK_DATA = true to test UI in the simulator (no BLE needed).
 // Set to false before deploying to the watch.
 // -----------------------------------------------------------------------
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = false;
 
 // Mock delegate — same public interface as FTMSBleDelegate but no BLE calls.
 // Used in the simulator so the UI can be tested without crashing.
@@ -154,16 +154,16 @@ class FTMSDataField extends WatchUi.DataField {
         var zones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_BIKING);
         if (_heartRate <= 0 || zones == null) {
             zoneColor = Graphics.COLOR_LT_GRAY;
-        } else if (_heartRate <= zones[0]) {
-            zoneColor = Graphics.COLOR_LT_GRAY;   // zone 1 — warm up
         } else if (_heartRate <= zones[1]) {
-            zoneColor = Graphics.COLOR_BLUE;       // zone 2 — easy
+            zoneColor = Graphics.COLOR_LT_GRAY;   // zone 1 — warm up
         } else if (_heartRate <= zones[2]) {
-            zoneColor = Graphics.COLOR_GREEN;      // zone 3 — aerobic
+            zoneColor = Graphics.COLOR_BLUE;      // zone 2 — easy
         } else if (_heartRate <= zones[3]) {
-            zoneColor = Graphics.COLOR_ORANGE;     // zone 4 — threshold
+            zoneColor = Graphics.COLOR_GREEN;     // zone 3 — aerobic
+        } else if (_heartRate <= zones[4]) {
+            zoneColor = Graphics.COLOR_ORANGE;    // zone 4 — threshold
         } else {
-            zoneColor = Graphics.COLOR_RED;        // zone 5 — maximum
+            zoneColor = Graphics.COLOR_RED;       // zone 5 — maximum
         }
 
         dc.setColor(zoneColor, zoneColor);
