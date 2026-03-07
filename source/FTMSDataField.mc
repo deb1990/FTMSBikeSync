@@ -60,19 +60,19 @@ class FTMSDataField extends WatchUi.DataField {
         _ble = USE_MOCK_DATA ? new FTMSMockDelegate() : new FTMSBleDelegate();
         _fitCadence = createField(
             "cadence", 0, FitContributor.DATA_TYPE_UINT8,
-            { :nativeNum => FIT_FIELD_CADENCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "rpm" }
+            { :nativeNum => FIT_FIELD_CADENCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "rpm", :displayInChart => true }
         );
         _fitDistance = createField(
             "distance", 1, FitContributor.DATA_TYPE_UINT32,
-            { :nativeNum => FIT_FIELD_DISTANCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m" }
+            { :nativeNum => FIT_FIELD_DISTANCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m", :displayInChart => true }
         );
         _fitSpeed = createField(
             "speed", 2, FitContributor.DATA_TYPE_UINT16,
-            { :nativeNum => FIT_FIELD_SPEED, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m/s" }
+            { :nativeNum => FIT_FIELD_SPEED, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m/s", :displayInChart => true }
         );
         _fitPower = createField(
             "power", 3, FitContributor.DATA_TYPE_UINT16,
-            { :nativeNum => FIT_FIELD_POWER, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "W" }
+            { :nativeNum => FIT_FIELD_POWER, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "W", :displayInChart => true }
         );
     }
 
