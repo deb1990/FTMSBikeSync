@@ -26,10 +26,11 @@ class FTMSParser {
     //                :powerW     (Number, W)     — null if not in this packet
     static function parse(data as ByteArray) as Dictionary {
         var result = {
-            :speedKph   => 0.0f,
-            :cadenceRpm => null,
-            :distanceM  => null,
-            :powerW     => null
+            :speedKph        => 0.0f,
+            :cadenceRpm      => null,
+            :distanceM       => null,
+            :powerW          => null,
+            :resistanceLevel => null
         };
 
         // Need at least 2 bytes for the flags field
@@ -88,8 +89,13 @@ class FTMSParser {
             offset += 3;
         }
 
-        // --- Resistance Level (bit 5, sint16, skip) ---
+        // --- Resistance Level (bit 5, sint16) ---
         if ((flags & 0x0020) != 0) {
+            if (data.size() >= offset + 2) {
+                var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
+                if (raw >= 0x8000) { raw = raw - 0x10000; }
+                result[:resistanceLevel] = raw;
+            }
             offset += 2;
         }
 

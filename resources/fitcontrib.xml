@@ -1,0 +1,86 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <fitContributions>
+
+        <!-- Per-record fields (id must match 2nd arg of createField) -->
+        <fitField id="1"
+            displayInChart="true"
+            chartTitle="@Strings.FitSpeedLabel"
+            fillColor="0x0055FF"
+            sortOrder="1"
+            precision="1"
+            dataLabel="@Strings.FitSpeedLabel"
+            unitLabel="@Strings.FitSpeedUnits" />
+
+        <fitField id="2"
+            displayInChart="true"
+            chartTitle="@Strings.FitCadenceLabel"
+            fillColor="0x00AA55"
+            sortOrder="2"
+            precision="0"
+            dataLabel="@Strings.FitCadenceLabel"
+            unitLabel="@Strings.FitCadenceUnits" />
+
+        <fitField id="3"
+            displayInChart="true"
+            chartTitle="@Strings.FitLevelLabel"
+            fillColor="0xFF6600"
+            sortOrder="3"
+            precision="0"
+            dataLabel="@Strings.FitLevelLabel"
+            unitLabel="@Strings.FitLevelUnits" />
+
+        <fitField id="4"
+            displayInChart="true"
+            chartTitle="@Strings.FitPowerLabel"
+            fillColor="0xFFAA00"
+            sortOrder="4"
+            precision="0"
+            dataLabel="@Strings.FitPowerLabel"
+            unitLabel="@Strings.FitPowerUnits" />
+
+        <!-- Session summary fields -->
+        <fitField id="10"
+            displayInActivitySummary="true"
+            sortOrder="10"
+            precision="0"
+            dataLabel="@Strings.FitMachineLabel"
+            unitLabel="@Strings.FitLevelUnits" />
+
+        <fitField id="11"
+            displayInActivitySummary="true"
+            sortOrder="11"
+            precision="1"
+            dataLabel="@Strings.FitAvgSpeedLabel"
+            unitLabel="@Strings.FitSpeedUnits" />
+
+        <fitField id="12"
+            displayInActivitySummary="true"
+            sortOrder="12"
+            precision="0"
+            dataLabel="@Strings.FitAvgPowerLabel"
+            unitLabel="@Strings.FitPowerUnits" />
+
+        <fitField id="13"
+            displayInActivitySummary="true"
+            sortOrder="13"
+            precision="0"
+            dataLabel="@Strings.FitPeakPowerLabel"
+            unitLabel="@Strings.FitPowerUnits" />
+
+        <fitField id="14"
+            displayInActivitySummary="true"
+            sortOrder="14"
+            precision="0"
+            dataLabel="@Strings.FitAvgCadenceLabel"
+            unitLabel="@Strings.FitCadenceUnits" />
+
+        <fitField id="15"
+            displayInActivitySummary="true"
+            sortOrder="15"
+            precision="2"
+            dataLabel="@Strings.FitDistanceLabel"
+            unitLabel="@Strings.FitDistanceUnits" />
+
+    </fitContributions>
+</resources>

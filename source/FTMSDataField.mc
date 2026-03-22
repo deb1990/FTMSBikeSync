@@ -7,12 +7,14 @@
 //   Row 3 (23%) — Power (left)    | Cadence (right)
 //   Row 4 (27%) — Activity Timer
 //
-// Standard FIT Record field IDs:
-//   4 = cadence  (UINT8,  rpm,  scale 1)
-//   5 = distance (UINT32, m,    scale 100  → store value * 100)
-//   6 = speed    (UINT16, m/s,  scale 1000 → store value * 1000)
-//   7 = power    (UINT16, W,    scale 1)
+// Developer field layout (mirrors original app structure):
+//   Record : Speed (float32, nativeNum=6), Cad (uint16, nativeNum=4),
+//            Pwr (sint16, nativeNum=7)
+//   Session: AvgSpd (float32, nativeNum=14), AvgPwr (uint16, nativeNum=20),
+//            PkPower (uint16, nativeNum=21), AvgCad (uint16, nativeNum=18),
+//            Dist (float32)
 
+import Toybox.Application;
 import Toybox.WatchUi;
 import Toybox.Activity;
 import Toybox.FitContributor;
@@ -20,11 +22,6 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
 import Toybox.UserProfile;
-
-const FIT_FIELD_CADENCE  = 4;
-const FIT_FIELD_DISTANCE = 5;
-const FIT_FIELD_SPEED    = 6;
-const FIT_FIELD_POWER    = 7;
 
 // -----------------------------------------------------------------------
 // Set USE_MOCK_DATA = true to test UI in the simulator (no BLE needed).
@@ -44,10 +41,28 @@ class FTMSMockDelegate {
 class FTMSDataField extends WatchUi.DataField {
 
     var _ble;
-    var _fitCadence;
-    var _fitDistance;
+
+    // Per-record developer fields
     var _fitSpeed;
+    var _fitCadence;
     var _fitPower;
+    var _fitLevel;
+
+    // Session summary developer fields
+    var _fitMach;
+    var _fitAvgSpeed;
+    var _fitAvgPower;
+    var _fitPeakPower;
+    var _fitAvgCadence;
+    var _fitTotalDist;
+
+    // Running totals for session averages
+    var _sampleCount = 0;
+    var _sumSpeedKph = 0.0f;
+    var _sumPowerW   = 0;
+    var _sumCadence  = 0.0f;
+    var _peakPowerW  = 0;
+
     var _heartRate = 0;
     var _timerMs   = 0;
     var _mockHr    = 60;
@@ -58,21 +73,54 @@ class FTMSDataField extends WatchUi.DataField {
     function initialize() {
         DataField.initialize();
         _ble = USE_MOCK_DATA ? new FTMSMockDelegate() : new FTMSBleDelegate();
-        _fitCadence = createField(
-            "cadence", 0, FitContributor.DATA_TYPE_UINT8,
-            { :nativeNum => FIT_FIELD_CADENCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "rpm", :displayInChart => true }
-        );
-        _fitDistance = createField(
-            "distance", 1, FitContributor.DATA_TYPE_UINT32,
-            { :nativeNum => FIT_FIELD_DISTANCE, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m", :displayInChart => true }
-        );
+
+        // --- Per-record fields ---
         _fitSpeed = createField(
-            "speed", 2, FitContributor.DATA_TYPE_UINT16,
-            { :nativeNum => FIT_FIELD_SPEED, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "m/s", :displayInChart => true }
+            "Speed", 1, FitContributor.DATA_TYPE_FLOAT,
+            { :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "km/h" }
+        );
+        _fitCadence = createField(
+            "Cad", 2, FitContributor.DATA_TYPE_UINT8,
+            { :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "rpm" }
         );
         _fitPower = createField(
-            "power", 3, FitContributor.DATA_TYPE_UINT16,
-            { :nativeNum => FIT_FIELD_POWER, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "W", :displayInChart => true }
+            "Pwr", 4, FitContributor.DATA_TYPE_SINT16,
+            { :nativeNum => 7, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "w", :displayInChart => true }
+        );
+        _fitLevel = createField(
+            "Level", 3, FitContributor.DATA_TYPE_UINT8,
+            { :nativeNum => 10, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "number", :displayInChart => true }
+        );
+
+        // --- Session summary fields ---
+        try {
+            var strType = FitContributor.DATA_TYPE_STRING;
+            _fitMach = createField(
+                "Mach", 10, strType,
+                { :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "Name", :count => 16 }
+            );
+        } catch (e instanceof Lang.Exception) {
+            _fitMach = null;
+        }
+        _fitAvgSpeed = createField(
+            "AvgSpd", 11, FitContributor.DATA_TYPE_FLOAT,
+            { :nativeNum => 14, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "mph or kph" }
+        );
+        _fitAvgPower = createField(
+            "AvgPwr", 12, FitContributor.DATA_TYPE_UINT16,
+            { :nativeNum => 20, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "w" }
+        );
+        _fitPeakPower = createField(
+            "PkPower", 13, FitContributor.DATA_TYPE_UINT16,
+            { :nativeNum => 20, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "W" }
+        );
+        _fitAvgCadence = createField(
+            "AvgCad", 14, FitContributor.DATA_TYPE_UINT16,
+            { :nativeNum => 18, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "rpm" }
+        );
+        _fitTotalDist = createField(
+            "Dist", 15, FitContributor.DATA_TYPE_FLOAT,
+            { :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "mi or km" }
         );
     }
 
@@ -257,18 +305,49 @@ class FTMSDataField extends WatchUi.DataField {
         var distanceM  = _ble.distanceM;
         var powerW     = _ble.powerW;
 
-        _fitSpeed.setData((speedKph / 3.6f * 1000.0f).toNumber());
-        _fitDistance.setData(distanceM * 100);
+        // --- Per-record fields ---
+        _fitSpeed.setData(speedKph);
 
+        // Store cadence as uint8 rpm to match native field 4 format
         var cadenceInt = Math.round(cadenceRpm).toNumber();
         if (cadenceInt < 0)   { cadenceInt = 0; }
         if (cadenceInt > 255) { cadenceInt = 255; }
         _fitCadence.setData(cadenceInt);
 
         var powerInt = powerW;
-        if (powerInt < 0)     { powerInt = 0; }
-        if (powerInt > 65535) { powerInt = 65535; }
+        if (powerInt < -32768) { powerInt = -32768; }
+        if (powerInt > 32767)  { powerInt = 32767; }
         _fitPower.setData(powerInt);
+
+        var level = _ble.resistanceLevel;
+        if (level < 0)   { level = 0; }
+        if (level > 255) { level = 255; }
+        _fitLevel.setData(level);
+
+        // --- Running totals (only accumulate when receiving data) ---
+        if (speedKph > 0.0f || powerW > 0) {
+            _sampleCount++;
+            _sumSpeedKph += speedKph;
+            _sumPowerW   += powerW;
+            _sumCadence  += cadenceRpm;
+            if (powerW > _peakPowerW) { _peakPowerW = powerW; }
+        }
+
+        // --- Session summary fields ---
+        if (_fitMach != null) {
+            var bikeName = Application.Storage.getValue(STORAGE_KEY_DEVICE_NAME);
+            _fitMach.setData((bikeName != null) ? bikeName : "Unknown");
+        }
+        if (_sampleCount > 0) {
+            _fitAvgSpeed.setData(_sumSpeedKph / _sampleCount);
+            _fitAvgPower.setData((_sumPowerW / _sampleCount).toNumber());
+            _fitPeakPower.setData(_peakPowerW);
+            _fitAvgCadence.setData(Math.round(_sumCadence / _sampleCount).toNumber());
+        }
+        if (distanceM > 0) {
+            _fitTotalDist.setData(distanceM / 1000.0f);
+        }
+
     }
 
     // -----------------------------------------------------------------------

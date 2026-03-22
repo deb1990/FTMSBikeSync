@@ -8,4 +8,20 @@
     <string id="StatusConnected">Connected</string>
     <string id="StatusSearching">Searching...</string>
     <string id="StatusReconnecting">Reconnecting</string>
+    <!-- fitContributions labels -->
+    <string id="FitSpeedLabel">Speed</string>
+    <string id="FitSpeedUnits">km/h</string>
+    <string id="FitCadenceLabel">Cadence</string>
+    <string id="FitCadenceUnits">rpm</string>
+    <string id="FitLevelLabel">Resistance Level</string>
+    <string id="FitLevelUnits"></string>
+    <string id="FitPowerLabel">Power</string>
+    <string id="FitPowerUnits">W</string>
+    <string id="FitMachineLabel">Machine</string>
+    <string id="FitAvgSpeedLabel">Avg Speed</string>
+    <string id="FitAvgPowerLabel">Avg Power</string>
+    <string id="FitPeakPowerLabel">Peak Power</string>
+    <string id="FitAvgCadenceLabel">Avg Cadence</string>
+    <string id="FitDistanceLabel">Distance</string>
+    <string id="FitDistanceUnits">km</string>
 </strings>

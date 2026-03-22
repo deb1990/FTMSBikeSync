@@ -35,10 +35,11 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
     // -----------------------------------------------------------------------
     // Public live metrics (read by FTMSDataField each second)
     // -----------------------------------------------------------------------
-    var speedKph   = 0.0f;
-    var cadenceRpm = 0.0f;
-    var distanceM  = 0;
-    var powerW     = 0;
+    var speedKph        = 0.0f;
+    var cadenceRpm      = 0.0f;
+    var distanceM       = 0;
+    var powerW          = 0;
+    var resistanceLevel = 0;
 
     // -----------------------------------------------------------------------
     // Private state
@@ -214,16 +215,20 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
         if (parsed[:powerW] != null) {
             powerW = parsed[:powerW];
         }
+        if (parsed[:resistanceLevel] != null) {
+            resistanceLevel = parsed[:resistanceLevel];
+        }
     }
 
     // -----------------------------------------------------------------------
     // Zero all metrics on disconnect
     // -----------------------------------------------------------------------
     function _zeroMetrics() as Void {
-        speedKph   = 0.0f;
-        cadenceRpm = 0.0f;
-        distanceM  = 0;
-        powerW     = 0;
+        speedKph        = 0.0f;
+        cadenceRpm      = 0.0f;
+        distanceM       = 0;
+        powerW          = 0;
+        resistanceLevel = 0;
     }
 
 }
