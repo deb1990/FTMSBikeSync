@@ -40,13 +40,6 @@
             unitLabel="@Strings.FitPowerUnits" />
 
         <!-- Session summary fields -->
-        <fitField id="10"
-            displayInActivitySummary="true"
-            sortOrder="10"
-            precision="0"
-            dataLabel="@Strings.FitMachineLabel"
-            unitLabel="@Strings.FitLevelUnits" />
-
         <fitField id="11"
             displayInActivitySummary="true"
             sortOrder="11"

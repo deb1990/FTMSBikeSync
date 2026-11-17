@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <strings>
     <string id="AppName">FTMSBikeSync</string>
-    <string id="LabelPower">POWER</string>
-    <string id="LabelCadence">CADENCE</string>
-    <string id="LabelSpeed">SPEED</string>
-    <string id="LabelDistance">DISTANCE</string>
-    <string id="StatusConnected">Connected</string>
-    <string id="StatusSearching">Searching...</string>
-    <string id="StatusReconnecting">Reconnecting</string>
     <!-- fitContributions labels -->
     <string id="FitSpeedLabel">Speed</string>
     <string id="FitSpeedUnits">km/h</string>
@@ -17,7 +10,6 @@
     <string id="FitLevelUnits"></string>
     <string id="FitPowerLabel">Power</string>
     <string id="FitPowerUnits">W</string>
-    <string id="FitMachineLabel">Machine</string>
     <string id="FitAvgSpeedLabel">Avg Speed</string>
     <string id="FitAvgPowerLabel">Avg Power</string>
     <string id="FitPeakPowerLabel">Peak Power</string>

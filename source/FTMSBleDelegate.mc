@@ -13,17 +13,10 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.System;
 
-// ---------------------------------------------------------------------------
-// Connection state enum
-// ---------------------------------------------------------------------------
-enum {
-    STATE_SCANNING      = 0,
-    STATE_CONNECTING    = 1,
-    STATE_CONNECTED     = 2,
-    STATE_RECONNECTING  = 3
-}
-
-const STORAGE_KEY_DEVICE_NAME = "lastFtmsDeviceName";
+// Connection states and storage key live in FTMSConstants.mc
+// If pairing/notification setup does not finish within this many ticks
+// (compute calls, ~1 s each) we give up and rescan.
+const CONNECT_TIMEOUT_TICKS = 20;
 
 class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
 
@@ -45,6 +38,8 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
     // Private state
     // -----------------------------------------------------------------------
     var _state = STATE_SCANNING;
+    var _device = null;        // currently paired/connecting device
+    var _stuckTicks = 0;
 
     // -----------------------------------------------------------------------
     // Constructor
@@ -85,7 +80,9 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
     // Start scanning
     // -----------------------------------------------------------------------
     function _startScan() {
-        _state = STATE_SCANNING;
+        if (_state != STATE_RECONNECTING) {
+            _state = STATE_SCANNING;
+        }
         BluetoothLowEnergy.setScanState(BluetoothLowEnergy.SCAN_STATE_SCANNING);
     }
 
@@ -93,7 +90,7 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
     // onScanResults — called with an Iterator of ScanResult objects
     // -----------------------------------------------------------------------
     function onScanResults(scanResults as Iterator) as Void {
-        if (_state != STATE_SCANNING) {
+        if (_state != STATE_SCANNING && _state != STATE_RECONNECTING) {
             return;
         }
 
@@ -126,8 +123,12 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
 
         if (bestResult != null) {
             _state = STATE_CONNECTING;
+            _stuckTicks = 0;
             BluetoothLowEnergy.setScanState(BluetoothLowEnergy.SCAN_STATE_OFF);
-            BluetoothLowEnergy.pairDevice(bestResult);
+            _device = BluetoothLowEnergy.pairDevice(bestResult);
+            if (_device == null) {
+                _recover();
+            }
         }
     }
 
@@ -154,9 +155,36 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
             _enableNotifications(device);
 
         } else if (state == BluetoothLowEnergy.CONNECTION_STATE_DISCONNECTED) {
-            _zeroMetrics();
-            _state = STATE_RECONNECTING;
-            _startScan();
+            _recover();
+        }
+    }
+
+    // Drop the current device, zero metrics and go back to scanning
+    function _recover() as Void {
+        _zeroMetrics();
+        if (_device != null) {
+            try {
+                BluetoothLowEnergy.unpairDevice(_device);
+            } catch (e instanceof Lang.Exception) {
+                System.println("FTMSBleDelegate: unpair failed");
+            }
+            _device = null;
+        }
+        _stuckTicks = 0;
+        _state = STATE_RECONNECTING;
+        _startScan();
+    }
+
+    // Called once per compute() (~1 s): watchdog for stuck connection setup
+    function tick() as Void {
+        if (_state == STATE_CONNECTING) {
+            _stuckTicks++;
+            if (_stuckTicks > CONNECT_TIMEOUT_TICKS) {
+                System.println("FTMSBleDelegate: connect timeout, rescanning");
+                _recover();
+            }
+        } else {
+            _stuckTicks = 0;
         }
     }
 
@@ -165,18 +193,21 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
         var service = device.getService(FTMS_SERVICE_UUID);
         if (service == null) {
             System.println("FTMSBleDelegate: FTMS service not found");
+            _recover();
             return;
         }
 
         var characteristic = service.getCharacteristic(FTMS_CHAR_UUID);
         if (characteristic == null) {
             System.println("FTMSBleDelegate: Indoor Bike Data characteristic not found");
+            _recover();
             return;
         }
 
         var cccd = characteristic.getDescriptor(BluetoothLowEnergy.cccdUuid());
         if (cccd == null) {
             System.println("FTMSBleDelegate: CCCD not found");
+            _recover();
             return;
         }
 
@@ -192,9 +223,7 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
             _state = STATE_CONNECTED;
         } else {
             System.println("FTMSBleDelegate: CCCD write failed, status=" + status);
-            _zeroMetrics();
-            _state = STATE_RECONNECTING;
-            _startScan();
+            _recover();
         }
     }
 
@@ -204,7 +233,10 @@ class FTMSBleDelegate extends BluetoothLowEnergy.BleDelegate {
     function onCharacteristicChanged(characteristic as BluetoothLowEnergy.Characteristic, data as ByteArray) as Void {
         var parsed = FTMSParser.parse(data);
 
-        speedKph = parsed[:speedKph];
+        // Speed is absent when the "more data" flag is set; keep last value
+        if (parsed[:speedKph] != null) {
+            speedKph = parsed[:speedKph];
+        }
 
         if (parsed[:cadenceRpm] != null) {
             cadenceRpm = parsed[:cadenceRpm];

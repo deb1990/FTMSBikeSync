@@ -20,13 +20,13 @@ class FTMSParser {
     //
     // @param data  ByteArray received from onCharacteristicChanged
     // @return      Dictionary with keys:
-    //                :speedKph   (Float, km/h)  — always present (bit 0 = 0 means present)
+    //                :speedKph   (Float, km/h)  — null if not in this packet
     //                :cadenceRpm (Float, rpm)    — null if not in this packet
     //                :distanceM  (Number, m)     — null if not in this packet
     //                :powerW     (Number, W)     — null if not in this packet
     static function parse(data as ByteArray) as Dictionary {
         var result = {
-            :speedKph        => 0.0f,
+            :speedKph        => null,
             :cadenceRpm      => null,
             :distanceM       => null,
             :powerW          => null,
@@ -49,10 +49,9 @@ class FTMSParser {
         // uint16 LE, unit = 0.01 km/h per LSB
         var speedPresent = ((flags & 0x0001) == 0);
         if (speedPresent) {
-            if (data.size() >= offset + 2) {
-                var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
-                result[:speedKph] = raw * 0.01f;
-            }
+            if (data.size() < offset + 2) { return result; }
+            var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
+            result[:speedKph] = raw * 0.01f;
             offset += 2;
         }
 
@@ -64,10 +63,9 @@ class FTMSParser {
         // --- Instantaneous Cadence (bit 2, present when set) ---
         // uint16 LE, unit = 0.5 rpm per LSB
         if ((flags & 0x0004) != 0) {
-            if (data.size() >= offset + 2) {
-                var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
-                result[:cadenceRpm] = raw * 0.5f;
-            }
+            if (data.size() < offset + 2) { return result; }
+            var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
+            result[:cadenceRpm] = raw * 0.5f;
             offset += 2;
         }
 
@@ -80,36 +78,33 @@ class FTMSParser {
         // uint24 LE (3 bytes), unit = 1 m per LSB
         // Monkey C has no UINT24 format, so parse 3 individual bytes.
         if ((flags & 0x0010) != 0) {
-            if (data.size() >= offset + 3) {
-                var b0 = data[offset]     & 0xFF;
-                var b1 = data[offset + 1] & 0xFF;
-                var b2 = data[offset + 2] & 0xFF;
-                result[:distanceM] = b0 | (b1 << 8) | (b2 << 16);
-            }
+            if (data.size() < offset + 3) { return result; }
+            var b0 = data[offset]     & 0xFF;
+            var b1 = data[offset + 1] & 0xFF;
+            var b2 = data[offset + 2] & 0xFF;
+            result[:distanceM] = b0 | (b1 << 8) | (b2 << 16);
             offset += 3;
         }
 
         // --- Resistance Level (bit 5, sint16) ---
         if ((flags & 0x0020) != 0) {
-            if (data.size() >= offset + 2) {
-                var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
-                if (raw >= 0x8000) { raw = raw - 0x10000; }
-                result[:resistanceLevel] = raw;
-            }
+            if (data.size() < offset + 2) { return result; }
+            var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
+            if (raw >= 0x8000) { raw = raw - 0x10000; }
+            result[:resistanceLevel] = raw;
             offset += 2;
         }
 
         // --- Instantaneous Power (bit 6, present when set) ---
         // sint16 LE, unit = 1 W per LSB
         if ((flags & 0x0040) != 0) {
-            if (data.size() >= offset + 2) {
-                var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
-                // Sign-extend sint16
-                if (raw >= 0x8000) {
-                    raw = raw - 0x10000;
-                }
-                result[:powerW] = raw;
+            if (data.size() < offset + 2) { return result; }
+            var raw = (data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8);
+            // Sign-extend sint16
+            if (raw >= 0x8000) {
+                raw = raw - 0x10000;
             }
+            result[:powerW] = raw;
             offset += 2;
         }
 

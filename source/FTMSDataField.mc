@@ -11,7 +11,7 @@
 //   Record : Speed (float32, nativeNum=6), Cad (uint16, nativeNum=4),
 //            Pwr (sint16, nativeNum=7)
 //   Session: AvgSpd (float32, nativeNum=14), AvgPwr (uint16, nativeNum=20),
-//            PkPower (uint16, nativeNum=21), AvgCad (uint16, nativeNum=18),
+//            PkPower (uint16, no nativeNum), AvgCad (uint16, nativeNum=18),
 //            Dist (float32)
 
 import Toybox.Application;
@@ -35,6 +35,7 @@ class FTMSMockDelegate {
     var cadenceRpm = 85.0f;
     var distanceM  = 12340;
     var powerW     = 247;
+    var resistanceLevel = 10;
     function getState() { return STATE_CONNECTED; }
 }
 
@@ -49,7 +50,6 @@ class FTMSDataField extends WatchUi.DataField {
     var _fitLevel;
 
     // Session summary developer fields
-    var _fitMach;
     var _fitAvgSpeed;
     var _fitAvgPower;
     var _fitPeakPower;
@@ -62,6 +62,12 @@ class FTMSDataField extends WatchUi.DataField {
     var _sumPowerW   = 0;
     var _sumCadence  = 0.0f;
     var _peakPowerW  = 0;
+
+    // Distance integrated from speed (bike-reported distance is unreliable)
+    var _calcDistM = 0.0f;
+
+    var _hrZones = null;
+    var _timerOn = false;
 
     var _heartRate = 0;
     var _timerMs   = 0;
@@ -77,7 +83,7 @@ class FTMSDataField extends WatchUi.DataField {
         // --- Per-record fields ---
         _fitSpeed = createField(
             "Speed", 1, FitContributor.DATA_TYPE_FLOAT,
-            { :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "km/h" }
+            { :nativeNum => 6, :mesgType => FitContributor.MESG_TYPE_RECORD, :units => "mph or kph" }
         );
         _fitCadence = createField(
             "Cad", 2, FitContributor.DATA_TYPE_UINT8,
@@ -93,15 +99,6 @@ class FTMSDataField extends WatchUi.DataField {
         );
 
         // --- Session summary fields ---
-        try {
-            var strType = FitContributor.DATA_TYPE_STRING;
-            _fitMach = createField(
-                "Mach", 10, strType,
-                { :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "Name", :count => 16 }
-            );
-        } catch (e instanceof Lang.Exception) {
-            _fitMach = null;
-        }
         _fitAvgSpeed = createField(
             "AvgSpd", 11, FitContributor.DATA_TYPE_FLOAT,
             { :nativeNum => 14, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "mph or kph" }
@@ -112,7 +109,7 @@ class FTMSDataField extends WatchUi.DataField {
         );
         _fitPeakPower = createField(
             "PkPower", 13, FitContributor.DATA_TYPE_UINT16,
-            { :nativeNum => 20, :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "W" }
+            { :mesgType => FitContributor.MESG_TYPE_SESSION, :units => "W" }
         );
         _fitAvgCadence = createField(
             "AvgCad", 14, FitContributor.DATA_TYPE_UINT16,
@@ -132,13 +129,22 @@ class FTMSDataField extends WatchUi.DataField {
             _mockHr = _mockHr + 5;
             if (_mockHr > 260) { _mockHr = 60; }
             _heartRate = _mockHr;
-        } else if (info.currentHeartRate != null) {
-            _heartRate = info.currentHeartRate;
+        } else {
+            // Clear on dropout so a lost strap doesn't show a stale value
+            _heartRate = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
+        }
+        if (_hrZones == null) {
+            _hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_BIKING);
         }
         if (info.timerTime != null) {
             _timerMs = info.timerTime;
         }
+        _timerOn = (info.timerState == Activity.TIMER_STATE_ON);
         if (!USE_MOCK_DATA) {
+            _ble.tick();
+            if (_timerOn) {
+                _calcDistM += _ble.speedKph / 3.6f;   // ~1 s per compute
+            }
             _writeFitFields();
         }
         return null;
@@ -162,9 +168,13 @@ class FTMSDataField extends WatchUi.DataField {
 
         _drawHrRow(dc, w, mid, div1);
         _drawDivider(dc, w, div1);
-        _drawDistSpeedRow(dc, w, mid, colL, colR, div1, div2);
+        _drawTwoColRow(dc, colL, colR, div1, div2,
+            "DIST (km)",  (_distanceM() / 1000.0f).format("%.2f"),
+            "SPD (km/h)", _ble.speedKph.format("%.1f"));
         _drawDivider(dc, w, div2);
-        _drawPowerCadenceRow(dc, w, mid, colL, colR, div2, div3);
+        _drawTwoColRow(dc, colL, colR, div2, div3,
+            "PWR (W)",   _ble.powerW.toString(),
+            "CAD (rpm)", Math.round(_ble.cadenceRpm).toNumber().toString());
         _drawDivider(dc, w, div3);
         _drawTimerRow(dc, w, mid, div3, h);
     }
@@ -173,7 +183,7 @@ class FTMSDataField extends WatchUi.DataField {
     // _getZoneColor — returns background colour for current HR zone
     // -----------------------------------------------------------------------
     hidden function _getZoneColor() as Graphics.ColorType {
-        var zones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_BIKING);
+        var zones = _hrZones;
         if (_heartRate <= 0 || zones == null) { return Graphics.COLOR_LT_GRAY; }
         if (_heartRate <= zones[1])           { return Graphics.COLOR_LT_GRAY; }
         if (_heartRate <= zones[2])           { return Graphics.COLOR_BLUE;    }
@@ -219,11 +229,14 @@ class FTMSDataField extends WatchUi.DataField {
     }
 
     // -----------------------------------------------------------------------
-    // _drawDistSpeedRow — distance (left) and speed (right)
+    // _drawTwoColRow — label/value pair in each half, with a centre divider
     // -----------------------------------------------------------------------
-    hidden function _drawDistSpeedRow(dc as Graphics.Dc, w as Number, mid as Number,
-                                      colL as Number, colR as Number,
-                                      rowTop as Number, rowBottom as Number) as Void {
+    hidden function _drawTwoColRow(dc as Graphics.Dc,
+                                   colL as Number, colR as Number,
+                                   rowTop as Number, rowBottom as Number,
+                                   labelL as String, valueL as String,
+                                   labelR as String, valueR as String) as Void {
+        var mid    = (colL + colR) / 2;
         var tinyH  = dc.getFontHeight(Graphics.FONT_XTINY);
         var medH   = dc.getFontHeight(Graphics.FONT_MEDIUM);
         var gap    = -2;
@@ -231,36 +244,10 @@ class FTMSDataField extends WatchUi.DataField {
         var valueY = labelY + tinyH + gap;
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(colL, labelY, Graphics.FONT_XTINY,  "DIST (km)",  Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, labelY, Graphics.FONT_XTINY,  "SPD (km/h)", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colL, valueY, Graphics.FONT_MEDIUM,
-            (_ble.distanceM / 1000.0f).format("%.2f"),  Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, valueY, Graphics.FONT_MEDIUM,
-            _ble.speedKph.format("%.1f"),                Graphics.TEXT_JUSTIFY_CENTER);
-
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(mid, rowTop + 1, mid, rowBottom);
-    }
-
-    // -----------------------------------------------------------------------
-    // _drawPowerCadenceRow — power (left) and cadence (right)
-    // -----------------------------------------------------------------------
-    hidden function _drawPowerCadenceRow(dc as Graphics.Dc, w as Number, mid as Number,
-                                         colL as Number, colR as Number,
-                                         rowTop as Number, rowBottom as Number) as Void {
-        var tinyH  = dc.getFontHeight(Graphics.FONT_XTINY);
-        var medH   = dc.getFontHeight(Graphics.FONT_MEDIUM);
-        var gap    = -2;
-        var labelY = _centeredLabelY(rowTop, rowBottom, tinyH, medH, gap);
-        var valueY = labelY + tinyH + gap;
-
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(colL, labelY, Graphics.FONT_XTINY,  "PWR (W)",   Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, labelY, Graphics.FONT_XTINY,  "CAD (rpm)", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colL, valueY, Graphics.FONT_MEDIUM,
-            _ble.powerW.toString(),                      Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(colR, valueY, Graphics.FONT_MEDIUM,
-            Math.round(_ble.cadenceRpm).toNumber().toString(), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colL, labelY, Graphics.FONT_XTINY,  labelL, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colR, labelY, Graphics.FONT_XTINY,  labelR, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colL, valueY, Graphics.FONT_MEDIUM, valueL, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(colR, valueY, Graphics.FONT_MEDIUM, valueR, Graphics.TEXT_JUSTIFY_CENTER);
 
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(mid, rowTop + 1, mid, rowBottom);
@@ -302,7 +289,7 @@ class FTMSDataField extends WatchUi.DataField {
     hidden function _writeFitFields() as Void {
         var speedKph   = _ble.speedKph;
         var cadenceRpm = _ble.cadenceRpm;
-        var distanceM  = _ble.distanceM;
+        var distanceM  = _distanceM();
         var powerW     = _ble.powerW;
 
         // --- Per-record fields ---
@@ -325,7 +312,7 @@ class FTMSDataField extends WatchUi.DataField {
         _fitLevel.setData(level);
 
         // --- Running totals (only accumulate when receiving data) ---
-        if (speedKph > 0.0f || powerW > 0) {
+        if (_timerOn && (speedKph > 0.0f || powerW > 0)) {
             _sampleCount++;
             _sumSpeedKph += speedKph;
             _sumPowerW   += powerW;
@@ -334,10 +321,6 @@ class FTMSDataField extends WatchUi.DataField {
         }
 
         // --- Session summary fields ---
-        if (_fitMach != null) {
-            var bikeName = Application.Storage.getValue(STORAGE_KEY_DEVICE_NAME);
-            _fitMach.setData((bikeName != null) ? bikeName : "Unknown");
-        }
         if (_sampleCount > 0) {
             _fitAvgSpeed.setData(_sumSpeedKph / _sampleCount);
             _fitAvgPower.setData((_sumPowerW / _sampleCount).toNumber());
@@ -348,6 +331,10 @@ class FTMSDataField extends WatchUi.DataField {
             _fitTotalDist.setData(distanceM / 1000.0f);
         }
 
+    }
+
+    hidden function _distanceM() as Float {
+        return USE_MOCK_DATA ? _ble.distanceM.toFloat() : _calcDistM;
     }
 
     // -----------------------------------------------------------------------

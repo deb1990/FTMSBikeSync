@@ -25,6 +25,8 @@
             <iq:product id="fenix8pro47mm"/>
             <iq:product id="fenix8solar47mm"/>
             <iq:product id="fenix8solar51mm"/>
+            <!-- Descent -->
+            <iq:product id="descentg1"/>
             <!-- fēnix E -->
             <iq:product id="fenixe"/>
         </iq:products>
